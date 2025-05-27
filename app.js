@@ -41,9 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         particles.forEach(p => p.update());
-        requestAnimationFrame( window.innerWidth;
-        canvas.height = window.innerHeight;
-    });
+        requestAnimationFrame(animate);
+    }
+    animate();
 
     // 导航激活状态
     document.querySelectorAll('.glass-nav a').forEach(link => {
@@ -65,4 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 400);
         });
     }
+
+    // 添加 page-loaded 类，保证内容显示
+    document.body.classList.add('page-loaded');
 });
