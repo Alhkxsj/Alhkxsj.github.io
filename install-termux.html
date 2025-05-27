@@ -18,9 +18,73 @@
     </nav>
 
     <main class="glass-container">
-        <h1>🔧 Termux环境配置指南</h1>
+        <h1 id="main-title">🔧 Termux环境配置指南</h1>
         <div class="tutorial-content">
-            <!-- 具体教程内容 -->
+            <h2>一、Termux简介</h2>
+            <p>Termux是一款强大的Android终端模拟器，让你在手机上像Linux一样操作命令行，适合学习Linux、Python、网页开发等。</p>
+            
+            <h2>二、Termux安装</h2>
+            <ol>
+                <li>推荐方式：前往 <a href="https://f-droid.org/packages/com.termux/" target="_blank">F-Droid</a> 或 <a href="https://github.com/termux/termux-app/releases" target="_blank">GitHub官方</a> 下载最新版Termux。</li>
+                <li>安装完成后，首次启动会自动配置基础环境。</li>
+            </ol>
+            
+            <h2>三、基础环境配置</h2>
+            <ol>
+                <li>
+                    <strong>更新软件源：</strong>
+                    <pre><code>pkg update && pkg upgrade</code></pre>
+                </li>
+                <li>
+                    <strong>安装常用工具：</strong>
+                    <pre><code>pkg install git vim python nano curl wget</code></pre>
+                </li>
+                <li>
+                    <strong>设置中文支持（可选）：</strong>
+                    <pre><code>pkg install zh-CN
+export LANG=zh_CN.UTF-8</code></pre>
+                </li>
+            </ol>
+
+            <h2>四、SSH密钥生成（用于GitHub操作）</h2>
+            <ol>
+                <li>
+                    生成密钥：
+                    <pre><code>ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</code></pre>
+                </li>
+                <li>
+                    查看公钥并复制到GitHub：
+                    <pre><code>cat ~/.ssh/id_rsa.pub</code></pre>
+                    登录GitHub → Settings → SSH and GPG keys → New SSH key，粘贴公钥内容。
+                </li>
+            </ol>
+
+            <h2>五、常用命令总结</h2>
+            <ul>
+                <li><code>ls</code>：查看当前目录文件</li>
+                <li><code>cd 目录名</code>：进入目录</li>
+                <li><code>pwd</code>：显示当前路径</li>
+                <li><code>cp 源文件 目标文件</code>：复制文件</li>
+                <li><code>mv 源文件 目标文件</code>：移动/重命名文件</li>
+                <li><code>rm 文件名</code>：删除文件</li>
+                <li><code>nano 文件名</code>：编辑文件（nano为简易编辑器）</li>
+            </ul>
+
+            <h2>六、常见问题与解决方法</h2>
+            <ul>
+                <li><strong>Q: 安装或更新时报错怎么办？</strong><br>
+                    A: 先执行 <code>pkg update</code>，如仍有问题请检查网络或更换镜像源。</li>
+                <li><strong>Q: 无法访问外网？</strong><br>
+                    A: 检查手机代理设置，或尝试切换网络环境。</li>
+                <li><strong>Q: 如何恢复Termux默认设置？</strong><br>
+                    A: 删除 <code>~/.termux</code> 目录或卸载重装应用。</li>
+            </ul>
+
+            <h2>七、参考与拓展</h2>
+            <ul>
+                <li><a href="https://github.com/termux/termux-app" target="_blank">Termux官方GitHub</a></li>
+                <li><a href="https://wiki.termux.com/" target="_blank">Termux Wiki（英文）</a></li>
+            </ul>
         </div>
     </main>
 
