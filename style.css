@@ -1,83 +1,93 @@
-/* 全局基础样式 */
+/* 基础样式 */
 body {
     font-family: "微软雅黑", "Microsoft YaHei", Arial, sans-serif;
     line-height: 1.7;
     margin: 0;
-    padding: 0;
     background: #f0f2f5;
     color: #222;
 }
 
 /* 导航栏样式 */
-nav {
+.main-nav {
     background: #24292e;
-    padding: 12px 5vw;
+    padding: 15px 5vw;
     margin-bottom: 24px;
     display: flex;
+    gap: 20px;
     align-items: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
-
-nav a {
+.main-nav a {
     color: #fff;
     text-decoration: none;
-    margin-right: 24px;
+    padding: 8px 18px;
+    border-radius: 5px;
     font-size: 1rem;
-    transition: color 0.2s;
+    transition: background 0.2s, color 0.2s;
 }
-
-nav a:hover,
-nav a.active {
+.main-nav a:hover,
+.main-nav a.active {
+    background: #444d56;
     color: #ffd33d;
 }
 
-/* 内容区样式 */
+/* 内容区域 */
 .container {
     max-width: 820px;
     margin: 0 auto;
+    padding: 28px 16px;
     background: #fff;
-    padding: 32px 20px;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.06);
 }
 
-/* 步骤列表美化 */
-.steps {
-    padding-left: 1.3em;
+/* 卡片式布局 */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-top: 30px;
 }
-
-.steps li {
-    margin: 12px 0;
-    padding: 10px 14px;
+.card {
     background: #f6f8fa;
-    border-left: 5px solid #0366d6;
-    border-radius: 4px 0 0 4px;
-    transition: background 0.2s;
+    padding: 24px 18px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    min-width: 0; /* 兼容小屏幕 */
 }
-
-.steps li:hover {
+.card:hover {
     background: #eaf5ff;
+    box-shadow: 0 6px 24px rgba(3,102,214,0.08);
+    transform: translateY(-5px) scale(1.02);
+}
+.card h2 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    color: #0366d6;
+}
+.card p {
+    color: #333;
+    font-size: 1rem;
+    margin: 10px 0 0 0;
 }
 
-/* 图片样式 */
-img {
-    max-width: 100%;
-    height: auto;
-    margin: 22px 0;
-    border-radius: 6px;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.08);
-}
-
-/* 响应式设计 */
-@media (max-width: 600px) {
-    nav {
+/* 响应式适配 */
+@media (max-width: 700px) {
+    .main-nav {
         flex-direction: column;
+        gap: 10px;
         padding: 10px 3vw;
     }
-    nav a {
-        margin: 8px 0;
-    }
     .container {
-        padding: 18px 5px;
+        padding: 16px 4px;
+    }
+    .card-container {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    .card {
+        padding: 18px 10px;
     }
 }

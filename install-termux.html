@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termux安装指南</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tutorial-style.css">
+    <style>
+        /* 如不想内嵌，可移到 tutorial-style.css */
+        .tutorial-content {
+            margin-top: 20px;
+        }
+        .tutorial-content h2 {
+            margin-top: 28px;
+            color: #0366d6;
+            font-size: 1.2rem;
+        }
+        pre {
+            background: #f6f8fa;
+            border-radius: 6px;
+            padding: 12px;
+            overflow-x: auto;
+            margin: 16px 0;
+            font-size: 1rem;
+        }
+        code {
+            font-family: "Fira Mono", "Consolas", "Menlo", monospace;
+        }
+        .warning-box {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin: 24px 0 0 0;
+            font-size: 1rem;
+        }
+        .tutorial-content ol {
+            padding-left: 1.3em;
+        }
+        .tutorial-content a {
+            color: #0366d6;
+            text-decoration: underline;
+        }
+        @media (max-width: 700px) {
+            .tutorial-content {
+                padding: 0 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="main-nav">
+        <a href="/">首页</a>
+        <a href="install-termux.html" class="active">安装Termux</a>
+        <a href="github-pages.html">GitHub托管</a>
+        <a href="markdown-guide.html">Markdown写作</a>
+    </nav>
+
+    <div class="container">
+        <h1>📱 Termux安装与配置</h1>
+        <div class="tutorial-content">
+            <h2>步骤一：安装Termux</h2>
+            <ol>
+                <li>
+                    从
+                    <a href="https://f-droid.org/repo/com.termux_118.apk" target="_blank" rel="noopener noreferrer">
+                        F-Droid
+                    </a>
+                    下载 APK
+                </li>
+                <li>
+                    运行基础更新命令：
+                    <pre><code class="bash">pkg update && pkg upgrade -y</code></pre>
+                </li>
+            </ol>
+            
+            <h2>步骤二：必要工具安装</h2>
+            <pre><code class="bash">termux-setup-storage
+pkg install git nginx openssh</code></pre>
+            
+            <div class="warning-box">
+                <strong>注意：</strong>不要从 Google Play 安装旧版本 Termux
+            </div>
+        </div>
+    </div>
+</body>
+</html>
