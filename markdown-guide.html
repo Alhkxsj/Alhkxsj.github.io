@@ -5,88 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Markdown写作指南</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="tutorial-style.css">
-    <style>
-        /* 推荐放到 tutorial-style.css，以下为内嵌方便预览 */
-        .tutorial-content {
-            margin-top: 20px;
-        }
-        .md-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: #f6f8fa;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        .md-table th, .md-table td {
-            padding: 12px 14px;
-            border-bottom: 1px solid #eaecef;
-            text-align: left;
-            font-size: 1rem;
-        }
-        .md-table th {
-            background: #eaf5ff;
-            color: #0366d6;
-            font-weight: 600;
-        }
-        .md-table tr:last-child td {
-            border-bottom: none;
-        }
-        .md-table code {
-            background: #eaeaea;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-family: "Fira Mono", "Consolas", "Menlo", monospace;
-        }
-        .md-table pre {
-            margin: 0;
-        }
-        @media (max-width: 700px) {
-            .tutorial-content {
-                padding: 0 2px;
-            }
-            .md-table th, .md-table td {
-                padding: 8px 5px;
-                font-size: 0.97rem;
-            }
-        }
-    </style>
 </head>
-<body>
-    <nav class="main-nav">
-        <a href="/">首页</a>
-        <a href="install-termux.html">安装Termux</a>
-        <a href="github-pages.html">GitHub托管</a>
-        <a href="markdown-guide.html" class="active">Markdown写作</a>
+<body class="tutorial-page">
+    <div class="bg-overlay"></div>
+    <canvas id="particle-canvas"></canvas>
+
+    <nav class="glass-nav">
+        <a href="/" data-hover="Home">首页</a>
+        <a href="install-termux.html" data-hover="Termux">环境配置</a>
+        <a href="github-pages.html" data-hover="GitHub">项目部署</a>
+        <a href="markdown-guide.html" data-hover="Markdown" class="active">内容创作</a>
     </nav>
 
-    <div class="container">
-        <h1>✍️ Markdown快速写作指南</h1>
+    <main class="glass-container">
+        <h1>✍️ Markdown高效写作</h1>
         <div class="tutorial-content">
-            <table class="md-table">
-                <tr>
-                    <th>语法</th>
-                    <th>效果</th>
-                </tr>
-                <tr>
-                    <td><code># 标题</code></td>
-                    <td><span style="font-size:1.3em; font-weight:bold;">一级标题</span></td>
-                </tr>
-                <tr>
-                    <td><code>**粗体**</code></td>
-                    <td><strong>粗体文字</strong></td>
-                </tr>
-                <tr>
-                    <td><code>```代码块```</code></td>
-                    <td><pre style="margin:0;"><code>print("Hello World")</code></pre></td>
-                </tr>
-            </table>
-            
-            <h2>转换HTML示例</h2>
-            <pre><code class="bash">pandoc tutorial.md -o tutorial.html</code></pre>
+            <!-- 具体教程内容 -->
         </div>
-    </div>
+    </main>
+
+    <script src="app.js"></script>
 </body>
 </html>

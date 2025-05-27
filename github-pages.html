@@ -3,81 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub托管指南</title>
+    <title>GitHub部署指南</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="tutorial-style.css">
-    <style>
-        /* 如不想内嵌，可移到 tutorial-style.css */
-        .tutorial-content {
-            margin-top: 20px;
-        }
-        .tutorial-content h2 {
-            margin-top: 28px;
-            color: #0366d6;
-            font-size: 1.2rem;
-        }
-        pre {
-            background: #f6f8fa;
-            border-radius: 6px;
-            padding: 12px;
-            overflow-x: auto;
-            margin: 16px 0;
-            font-size: 1rem;
-        }
-        code {
-            font-family: "Fira Mono", "Consolas", "Menlo", monospace;
-            background: #eaeaea;
-            padding: 2px 6px;
-            border-radius: 3px;
-        }
-        .tutorial-content ul {
-            padding-left: 1.3em;
-        }
-        .tutorial-content li {
-            margin-bottom: 10px;
-        }
-        .tutorial-content img {
-            max-width: 100%;
-            height: auto;
-            margin: 24px 0 0 0;
-            border-radius: 5px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-        }
-        @media (max-width: 700px) {
-            .tutorial-content {
-                padding: 0 2px;
-            }
-            .container {
-                padding: 16px 4px;
-            }
-        }
-    </style>
 </head>
-<body>
-    <nav class="main-nav">
-        <a href="/">首页</a>
-        <a href="install-termux.html">安装Termux</a>
-        <a href="github-pages.html" class="active">GitHub托管</a>
-        <a href="markdown-guide.html">Markdown写作</a>
+<body class="tutorial-page">
+    <div class="bg-overlay"></div>
+    <canvas id="particle-canvas"></canvas>
+
+    <nav class="glass-nav">
+        <a href="/" data-hover="Home">首页</a>
+        <a href="install-termux.html" data-hover="Termux">环境配置</a>
+        <a href="github-pages.html" data-hover="GitHub" class="active">项目部署</a>
+        <a href="markdown-guide.html" data-hover="Markdown">内容创作</a>
     </nav>
 
-    <div class="container">
-        <h1>🚀 GitHub Pages托管指南</h1>
+    <main class="glass-container">
+        <h1>🚀 GitHub Pages部署详解</h1>
         <div class="tutorial-content">
-            <h2>创建规范仓库</h2>
-            <ul>
-                <li>仓库名必须为 <code>用户名.github.io</code></li>
-                <li>仓库内必须包含 <code>index.html</code> 文件</li>
-            </ul>
-            
-            <h2>推送代码示例</h2>
-            <pre><code class="bash">git add .
-git commit -m "更新内容"
-git push origin main</code></pre>
-            
-            <h2>配置GitHub Pages</h2>
-            <img src="images/github-pages-setting.png" alt="GitHub Pages 设置示意图">
+            <!-- 具体教程内容 -->
         </div>
-    </div>
+    </main>
+
+    <script src="app.js"></script>
 </body>
 </html>
