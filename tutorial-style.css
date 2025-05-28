@@ -1,91 +1,151 @@
-/* 教程内容基础样式 */
+/* tutorial-style.css - 适用于所有教程内容页面的细节美化 */
+
 .tutorial-content {
-    background: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-    margin-top: 20px;
+    background: rgba(255,255,255,0.93);
+    border-radius: 32px;
+    box-shadow: 0 4px 36px #2193b012;
+    padding: 28px 24px 16px 24px;
+    margin: 0 auto;
+    max-width: 900px;
+    color: #234;
+    font-size: 1.09em;
+    animation: floaty 4.5s cubic-bezier(.45,1.5,.45,1) infinite alternate;
+    transition: box-shadow 0.25s, background 0.36s;
 }
 
-/* 代码区域美化 */
-pre {
-    background: #161b22;
-    color: #c9d1d9;
-    padding: 16px;
-    border-radius: 6px;
+.tutorial-content h2 {
+    color: #2193b0;
+    font-size: 1.45em;
+    font-weight: 700;
+    margin-top: 1.7em;
+    margin-bottom: .75em;
+    letter-spacing: 1px;
+}
+
+.tutorial-content section {
+    margin-bottom: 2.1em;
+    border-radius: 22px;
+    padding: 18px 14px 10px 14px;
+    background: linear-gradient(90deg, #f2faffcc 60%, #e3f2fdcc 100%);
+    box-shadow: 0 2px 16px #2193b011;
+    transition: box-shadow 0.22s cubic-bezier(.45,1.5,.45,1), background 0.22s;
+}
+
+.tutorial-content section:hover {
+    box-shadow: 0 8px 32px #6dd5ed33;
+    background: linear-gradient(90deg, #e3f2fdcc 40%, #f2faffcc 100%);
+    transform: translateY(-3px) scale(1.013);
+}
+
+.tutorial-content ul, .tutorial-content ol {
+    margin-left: 1.5em;
+    margin-bottom: 1.1em;
+    line-height: 1.9;
+}
+
+.tutorial-content li {
+    margin-bottom: 0.35em;
+}
+
+.tutorial-content code,
+.tutorial-content pre {
+    background: #f5fdff;
+    color: #2193b0;
+    font-family: "JetBrains Mono", "Fira Mono", "Menlo", monospace;
+    border-radius: 8px;
+    padding: 2px 7px;
+    font-size: 0.99em;
+    margin: 0 2px;
+}
+
+.tutorial-content pre {
+    display: block;
+    padding: 14px 12px;
+    margin: 10px 0;
     overflow-x: auto;
-    font-size: 1rem;
-    margin: 18px 0;
-}
-code {
-    font-family: "Fira Mono", "Consolas", "Menlo", monospace;
-    font-size: 1em;
-}
-code.bash::before {
-    content: "$ ";
-    color: #58a6ff;
+    background: #e3f2fd;
+    border-radius: 12px;
+    color: #135;
+    font-size: 1.03em;
+    box-shadow: 0 1px 10px #2193b012;
 }
 
-/* Markdown演示表格美化 */
-.md-table {
+.tutorial-content a {
+    color: #2193b0;
+    font-weight: bold;
+    text-decoration: underline dotted;
+    transition: color 0.2s;
+}
+
+.tutorial-content a:hover {
+    color: #0b7dd1;
+    background: #e3f2fd;
+    border-radius: 6px;
+    text-decoration: underline solid;
+    transition: background 0.2s;
+}
+
+.tutorial-content table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
-    background: #f6f8fa;
-    border-radius: 8px;
+    margin: 1em 0;
+    background: #f9fdff;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    box-shadow: 0 1px 8px #2193b012;
 }
-.md-table th, .md-table td {
-    border: 1px solid #eaecef;
-    padding: 12px;
+
+.tutorial-content th, .tutorial-content td {
+    border: 1px solid #d0eefc;
+    padding: 7px 10px;
     text-align: left;
-    font-size: 1rem;
-}
-.md-table th {
-    background: #eaf5ff;
-    color: #0366d6;
-    font-weight: 600;
+    font-size: 1em;
 }
 
-/* 警告框样式 */
-.warning-box {
-    background: #fff3cd;
-    border-left: 4px solid #ffc107;
-    padding: 15px 18px;
-    margin: 22px 0;
-    color: #856404;
-    border-radius: 6px;
-    font-size: 1rem;
+.tutorial-content th {
+    background: #e3f2fd;
+    color: #2193b0;
+    font-weight: 700;
 }
 
-/* 响应式与移动端优化 */
-@media (max-width: 950px) {
+.tutorial-content blockquote {
+    margin: 12px 0;
+    padding: 12px 18px;
+    background: #e3f2fd66;
+    border-left: 5px solid #6dd5ed;
+    border-radius: 10px;
+    color: #2193b0;
+    font-style: italic;
+    font-size: 1.08em;
+}
+
+.tutorial-content img {
+    max-width: 100%;
+    border-radius: 18px;
+    margin: 14px 0;
+    box-shadow: 0 2px 16px #2193b026;
+}
+
+@media (max-width: 900px) {
     .tutorial-content {
-        padding: 18px 3vw;
+        padding: 16px 2vw 12px 2vw;
+        font-size: 1.01em;
+    }
+    .tutorial-content section {
+        padding: 10px 4px 6px 4px;
     }
 }
+
 @media (max-width: 600px) {
     .tutorial-content {
-        padding: 14px 4px;
+        padding: 8px 0 4px 0;
+        font-size: .99em;
     }
-    .main-nav {
-        flex-direction: column;
-        gap: 10px;
-        padding: 10px 3vw;
+    .tutorial-content h2 {
+        font-size: 1.13em;
     }
-    .card-container {
-        grid-template-columns: 1fr;
-        gap: 14px;
+    .tutorial-content pre {
+        font-size: .97em;
+        padding: 8px 4px;
     }
-    .md-table th, .md-table td {
-        padding: 8px 5px;
-        font-size: 0.97rem;
-    }
-}
-
-/* 可选: 让代码块在较窄屏幕下不溢出 */
-pre, code {
-    word-break: break-all;
-    white-space: pre-wrap;
 }

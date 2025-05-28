@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <title>Termux 建站超详细教程 | Termux 建站全攻略</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="终极 Termux 建站教程，涵盖 Termux 安装、环境配置、工具安装、SSH 配置、git 推送、常见问题与进阶技巧，助你用手机高效搭建个人网站。">
+    <meta name="description" content="终极 Termux 建站教程，涵盖 Termux 安装、环境配置、工具安装、SSH 配置、git 推送、常见问题与进阶技巧，助你用手机高效建站。">
     <meta name="keywords" content="Termux, 建站, 教程, 环境配置, GitHub, SSH, Android, 手机建站">
     <meta property="og:title" content="Termux 建站超详细教程 | Termux 建站全攻略">
-    <meta property="og:description" content="终极 Termux 建站教程，涵盖 Termux 安装、环境配置、工具安装、SSH 配置、git 推送、常见问题与进阶技巧，助你用手机高效搭建个人网站。">
-    <meta property="og:image" content="https://alhkxsj.github.github.io/install-termux.html">
+    <meta property="og:description" content="终极 Termux 建站教程，涵盖 Termux 安装、环境配置、工具安装、SSH 配置、git 推送、常见问题与进阶技巧，助你用手机高效建站。">
+    <meta property="og:image" content="https://alhkxsj.github.io/images/home-bg.webp">
     <meta property="og:type" content="article">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Termux 建站超详细教程 | Termux 建站全攻略">
-    <meta name="twitter:description" content="终极 Termux 建站教程，涵盖 Termux 安装、环境配置、工具安装、SSH 配置、git 推送、常见问题与进阶技巧，助你用手机高效搭建个人网站。">
+    <meta name="twitter:description" content="终极 Termux 建站教程，涵盖 Termux 安装、环境配置、工具安装、SSH 配置、git 推送、常见问题与进阶技巧，助你用手机高效建站。">
     <meta name="twitter:image" content="https://alhkxsj.github.io/images/home-bg.webp">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="tutorial-style.css">
@@ -30,20 +30,25 @@
         <a href="about.html" data-hover="About">关于</a>
     </nav>
     <main class="glass-container">
-        <h1 id="main-title">📱 Termux 建站超详细教程</h1>
+        <h1 id="main-title" class="animate__animated animate__fadeInDown">📱 Termux 建站超详细教程</h1>
         <div class="tutorial-content">
             <section>
                 <h2>一、Termux 下载与安装</h2>
                 <ol>
                     <li>
-                        <b>不要直接在酷安/应用商店下载安装！</b>  
-                        推荐到 <a href="https://f-droid.org/packages/com.termux/" target="_blank" rel="noopener noreferrer">F-Droid</a> 或 <a href="https://github.com/termux/termux-app/releases" target="_blank" rel="noopener noreferrer">GitHub官方Releases</a> 下载最新版 <b>Termux APK</b>。
+                        <b>不要直接在酷安/应用商店下载安装！</b><br>
+                        推荐到 <a href="https://f-droid.org/packages/com.termux/" target="_blank" rel="noopener noreferrer">F-Droid</a> 或 <a href="https://github.com/termux/termux-app/releases" target="_blank" rel="noopener noreferrer">GitHub Releases</a> 获取最新版。
                     </li>
                     <li>
                         安装后第一次打开时，可能会弹出存储权限提示，建议同意。
                     </li>
                     <li>
-                        如果看到 <code>Unable to resolve host</code> 等错误，检查网络源与环境</h2>
+                        如果看到 <code>Unable to resolve host</code> 等错误，检查网络源与环境。
+                    </li>
+                </ol>
+            </section>
+            <section>
+                <h2>二、更换国内源与更新环境</h2>
                 <ol>
                     <li>
                         <b>更换国内源（提升下载速度）：</b><br>
@@ -62,58 +67,48 @@
                     <li>安装 curl：<code>pkg install curl -y</code></li>
                     <li>安装 nano/vim（文本编辑器）：<code>pkg install nano -y</code></li>
                     <li>安装 openssh（用于 SSH 连接）：<code>pkg install openssh -y</code></li>
-                    <li> 密钥：<br>
+                    <li>生成密钥：<br>
                         <code>ssh-keygen -t ed25519 -C "你的邮箱"</code><br>
                         一路回车即可。
                     </li>
-                    <li>
-                        查看公钥内容：<br>
+                    <li>查看公钥内容：<br>
                         <code>cat ~/.ssh/id_ed25519.pub</code><br>
                         长按终端复制输出的全部内容。
                     </li>
-                    <li>
-                        添加公钥到 GitHub：<br>
-                        打开 <a href="https://github.com/settings/keys" target="_blank" rel="noopener noreferrer">GitHub SSH Keys</a> 页面，点击 <b>New SSH key</b>，把刚才复制的内容粘贴进去并保存。
+                    <li>添加公钥到 GitHub：<br>
+                        打开 <a href="https://github.com/settings/keys" target="_blank" rel="noopener noreferrer">GitHub SSH Keys</a> 页面，点击 <b>New SSH key</b>，把刚才复制的内容粘贴进去保存。
                     </li>
-                    <li>
-                        测试是否成功：<br>
+                    <li>测试是否成功：<br>
                         <code>ssh -T git@github.com</code><br>
                         如果显示 <b>Hi 用户名! You've successfully authenticated</b> 就说明配置成功。
                     </li>
                 </ol>
             </section>
             <section>
-                <h2>五、克隆 GitHub 仓库到本地</h2>
+                <h2>四、克隆 GitHub 仓库到本地</h2>
                 <ol>
-                    <li>
-                        找到你要操作的 GitHub 仓库，点击 <b>Code</b>，选择 <b>SSH</b>，复制仓库地址（如 <code>git@github.com:Alhkxsj/Alhkxsj.github.io.git</code>）。
-                    </li>
-                    <li>
-                        在 Termux 运行：<br>
+                    <li>找到你要操作的 GitHub 仓库，点击 <b>Code</b>，选择 <b>SSH</b>，复制仓库地址（如 <code>git@github.com:Alhkxsj/Alhkxsj.github.io.git</code>）。</li>
+                    <li>在 Termux 运行：<br>
                         <code>git clone 仓库地址</code><br>
                         例如：<br>
                         <code>git clone git@github.com:Alhkxsj/Alhkxsj.github.io.git</code>
                     </li>
-                    <li>
-                        进入仓库目录：<br>
+                    <li>进入仓库目录：<br>
                         <code>cd Alhkxsj.github.io</code>
                     </li>
                 </ol>
             </section>
             <section>
-                <h2>六、编辑和上传你的网页</h2>
+                <h2>五、编辑和上传你的网站</h2>
                 <ol>
-                    <li>
-                        用 nano 编辑网页文件：<br>
+                    <li>用 nano 编辑网页文件：<br>
                         <code>nano install-termux.html</code><br>
                         编辑后，<b>Ctrl+O</b> 保存，<b>Ctrl+X</b> 退出。
                     </li>
-                    <li>
-                        查看修改状态：<br>
+                    <li>查看修改状态：<br>
                         <code>git status</code>
                     </li>
-                    <li>
-                        提交修改并推送到 GitHub：<br>
+                    <li>提交修改并推送到 GitHub：<br>
                         <code>
 git add .
 git commit -m "更新说明"
@@ -123,7 +118,7 @@ git push
                 </ol>
             </section>
             <section>
-                <h2>七、常见问题与解决办法</h2>
+                <h2>六、常见问题与解决办法</h2>
                 <ul>
                     <li>
                         <b>Q: Termux 软件源很慢/下载失败</b><br>
@@ -135,7 +130,7 @@ git push
                     </li>
                     <li>
                         <b>Q: 编辑文件时乱码</b><br>
-                        A: 建议用 nano，存为 UTF-8 编码。
+                        A: 建议用 nano，保存为 UTF-8 编码。
                     </li>
                     <li>
                         <b>Q: 终端复制粘贴怎么用？</b><br>

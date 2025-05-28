@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 主标题点击动画
+    // 主标题点击弹跳动画
     const title = document.getElementById('main-title');
     if (title) {
         title.style.cursor = 'pointer';
