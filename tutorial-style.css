@@ -59,7 +59,12 @@ code.bash::before {
     font-size: 1rem;
 }
 
-/* 移动端优化 */
+/* 响应式与移动端优化 */
+@media (max-width: 950px) {
+    .tutorial-content {
+        padding: 18px 3vw;
+    }
+}
 @media (max-width: 600px) {
     .tutorial-content {
         padding: 14px 4px;
@@ -77,4 +82,10 @@ code.bash::before {
         padding: 8px 5px;
         font-size: 0.97rem;
     }
+}
+
+/* 可选: 让代码块在较窄屏幕下不溢出 */
+pre, code {
+    word-break: break-all;
+    white-space: pre-wrap;
 }

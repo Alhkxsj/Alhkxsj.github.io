@@ -42,8 +42,7 @@ body {
     gap: 38px;
     backdrop-filter: blur(16px);
     align-items: center;
-    border: 1.5px solid rgba(58,122,254,0.09);
-    transition: box-shadow 0.32s cubic-bezier(.4,0,.2,1);
+    border: 1.5px solid rgba(58,122,254,0,0,.2,1);
     min-width: 340px;
     overflow: visible;
     position: relative;
@@ -68,15 +67,14 @@ body {
     transform: translateY(-4px) scale(1.12);
     box-shadow: 0 6px 24px #1de9b648;
 }
+/* 导航横线滑块 */
 .nav-slider {
     position: absolute;
     bottom: 6px;
     left: 0;
     height: 6px;
     width: 60px;
-    background: linear-gradient(90deg,#3a7afe,#1de9b6);
-    border-radius: 8px;
-    transition: left 0.34s cubic-bezier(.4,0,.2,1), width 0.34s cubic-bezier(.4,0,.2,1);
+    background: linear-gradient(90deg,.2,1), width 0.34s cubic-bezier(.4,0,.2,1);
     z-index: 0;
     pointer-events: none;
 }
@@ -178,6 +176,64 @@ body.page-loaded .glass-container {
     from { transform: translateY(0);}
     to   { transform: translateY(-12px);}
 }
+/* 教程内容基础样式 */
+.tutorial-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    margin-top: 20px;
+}
+/* 代码区域美化 */
+pre {
+    background: #161b22;
+    color: #c9d1d9;
+    padding: 16px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-size: 1rem;
+    margin: 18px 0;
+}
+code {
+    font-family: "Fira Mono", "Consolas", "Menlo", monospace;
+    font-size: 1em;
+}
+code.bash::before {
+    content: "$ ";
+    color: #58a6ff;
+}
+/* Markdown演示表格美化 */
+.md-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: #f6f8fa;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.md-table th, .md-table td {
+    border: 1px solid #eaecef;
+    padding: 12px;
+    text-align: left;
+    font-size: 1rem;
+}
+.md-table th {
+    background: #eaf5ff;
+    color: #0366d6;
+    font-weight: 600;
+}
+/* 警告框样式 */
+.warning-box {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 15px 18px;
+    margin: 22px 0;
+    color: #856404;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+/* 移动端优化 */
 @media (max-width: 950px) {
     .content-grid {
         grid-template-columns: 1fr;
@@ -189,5 +245,23 @@ body.page-loaded .glass-container {
     .glass-nav {
         gap: 16px;
         padding: 8px 10px;
+    }
+}
+@media (max-width: 600px) {
+    .tutorial-content {
+        padding: 14px 4px;
+    }
+    .main-nav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 3vw;
+    }
+    .card-container {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    .md-table th, .md-table td {
+        padding: 8px 5px;
+        font-size: 0.97rem;
     }
 }

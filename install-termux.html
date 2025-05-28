@@ -21,6 +21,7 @@
 
     <!-- 样式文件 -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tutorial-style.css">
     <!-- SVG Favicon，防止 404 -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>">
 </head>
@@ -34,23 +35,24 @@
         <a href="install-termux.html" data-hover="Termux" class="active">环境配置</a>
         <a href="github-pages.html" data-hover="GitHub">项目部署</a>
         <a href="markdown-guide.html" data-hover="Markdown">内容创作</a>
+        <a href="about.html" data-hover="About">关于</a>
     </nav>
 
-    <main class="glass-container" style="opacity:1;transform:none;">
+    <main class="glass-container">
         <h1 id="main-title">📱 Termux 建站超详细教程</h1>
         <div class="tutorial-content">
             <section>
                 <h2>一、Termux 下载与安装</h2>
                 <ol>
                     <li>
-                        <b>不要直接在酷安/应用商店下载安装！</b>  
+                        <b>不要直接在酷安/应用商店下载安装！</b><br>
                         推荐到 <a href="https://f-droid.org/packages/com.termux/" target="_blank" rel="noopener noreferrer">F-Droid</a> 或 <a href="https://github.com/termux/termux-app/releases" target="_blank" rel="noopener noreferrer">GitHub官方Releases</a> 下载最新版 <b>Termux APK</b>。
                     </li>
                     <li>
                         安装后第一次打开时，可能会弹出存储权限提示，建议同意。
                     </li>
                     <li>
-                        如果看到<code>Unable to resolve host</code>等错误，检查网络和软件源。
+                        如果看到 <code>Unable to resolve host</code> 等错误，检查网络和软件源。
                     </li>
                 </ol>
             </section>
@@ -64,15 +66,13 @@
                     </li>
                     <li>
                         <b>更新包管理器和升级环境：</b><br>
-                        <code>pkg update &amp;&amp; pkg upgrade -y</code>
+                        <code>pkg update && pkg upgrade -y</code>
                     </li>
                 </ol>
             </section>
 
             <section>
-                <h2>三、安装常用关键工具</h2>
-                <ol>
-                    <li>安装 git：<code>pkg install git -y</code></li>
+                git：<code>pkg install git -y</code></li>
                     <li>安装 curl：<code>pkg install curl -y</code></li>
                     <li>安装 nano/vim（文本编辑器）：<code>pkg install nano -y</code></li>
                     <li>安装 openssh（用于 SSH 连接）：<code>pkg install openssh -y</code></li>
@@ -94,8 +94,9 @@
                         <code>cat ~/.ssh/id_ed25519.pub</code><br>
                         长按终端复制输出的全部内容。
                     </li>
-https://github.com/settings/keys" target="_blank" rel="noopener noreferrer">GitHub SSH Keys</a> 页面，<br>
-                        点击 <b>New SSH key</b>，把刚才复制的内容粘贴进去、保存。
+                    <li>
+                        添加公钥到 GitHub：<br>
+                        打开 <a href="https://github.com/settings/keys" target="_blank" rel="noopener noreferrer">GitHub SSH Keys</a> 页面，点击 <b>New SSH key</b>，把刚才复制的内容粘贴进去并保存。
                     </li>
                     <li>
                         测试是否成功：<br>
@@ -109,7 +110,7 @@ https://github.com/settings/keys" target="_blank" rel="noopener noreferrer">GitH
                 <h2>五、克隆 GitHub 仓库到本地</h2>
                 <ol>
                     <li>
-                        找到你要操作的 GitHub 仓库，点击 <b>Code</b>，选择 <b>SSH</b>，复制仓库地址（如<code>git@github.com:Alhkxsj/Alhkxsj.github.io.git</code>）。
+                        找到你要操作的 GitHub 仓库，点击 <b>Code</b>，选择 <b>SSH</b>，复制仓库地址（如 <code>git@github.com:Alhkxsj/Alhkxsj.github.io.git</code>）。
                     </li>
                     <li>
                         在 Termux 运行：<br>
@@ -139,8 +140,8 @@ https://github.com/settings/keys" target="_blank" rel="noopener noreferrer">GitH
                     <li>
                         提交修改并推送到 GitHub：<br>
                         <code>
-git add .<br>
-git commit -m "更新说明"<br>
+git add .
+git commit -m "更新说明"
 git push
                         </code>
                     </li>
@@ -163,5 +164,4 @@ git push
                         A: 建议用 nano，存为 UTF-8 编码。
                     </li>
                     <li>
-                        <b>Q: 终端复制粘贴怎么用？</b><br>
-                        A: 长按终端窗口可弹出复制粘
+                  

@@ -56,11 +56,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     animate();
 
-    // 导航滑块动画
+    // 导航滑块动画（已优化，适配移动端、桌面端、resize、点击、初始）
     const nav = document.querySelector('.glass-nav');
     if (nav) {
         const slider = nav.querySelector('.nav-slider');
         const links = Array.from(nav.querySelectorAll('a'));
+
         function updateSlider(target) {
             if (!target || !slider) return;
             const rect = target.getBoundingClientRect();
@@ -68,21 +69,45 @@ document.addEventListener('DOMContentLoaded', () => {
             slider.style.left = (rect.left - navRect.left) + 'px';
             slider.style.width = rect.width + 'px';
         }
+
+        // 鼠标悬停/聚焦时滑块移动
         links.forEach(link => {
             link.addEventListener('mouseenter', () => updateSlider(link));
             link.addEventListener('focus', () => updateSlider(link));
+            // 移动端点击也要更新
+            link.addEventListener('click', () => {
+                links.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                updateSlider(link);
+            });
         });
+
+        // 鼠标移出导航后，滑块回到当前激活项
         nav.addEventListener('mouseleave', () => {
             const active = nav.querySelector('.active') || links[0];
             updateSlider(active);
         });
-        // 激活当前导航
+
+        // 页面初始激活项
+        let foundActive = false;
         links.forEach(link => {
-            // 只比较 pathname，防止锚点或参数干扰
             if (link.pathname === window.location.pathname) {
                 link.classList.add('active');
-                updateSlider(link);
+                foundActive = true;
             }
+        });
+        if (!foundActive) links[0].classList.add('active');
+
+        // 初始定位滑块（延迟保证渲染后准确）
+        setTimeout(() => {
+            const active = nav.querySelector('.active') || links[0];
+            updateSlider(active);
+        }, 0);
+
+        // 窗口resize、横竖屏切换时，滑块跟随当前激活项
+        window.addEventListener('resize', () => {
+            const active = nav.querySelector('.active') || links[0];
+            updateSlider(active);
         });
     }
 
