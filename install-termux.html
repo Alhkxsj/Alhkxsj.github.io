@@ -2,8 +2,23 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>Termux建站超详细教程</title>
+    <title>Termux 建站超详细教程 | Termux 建站全攻略</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- SEO 优化 -->
+    <meta name="description" content="终极 Termux 建站教程，涵盖 Termux 安装、环境配置、工具安装、SSH 配置、git 推送、常见问题与进阶技巧，助你用手机高效搭建个人网站。">
+    <meta name="keywords" content="Termux, 建站, 教程, 环境配置, GitHub, SSH, Android, 手机建站">
+    <!-- Open Graph 社交分享 -->
+    <meta property="og:title" content="Termux 建站超详细教程 | Termux 建站全攻略">
+    <meta property="og:description" content="终极 Termux 建站教程，涵盖 Termux 安装、环境配置、工具安装、SSH 配置、git 推送、常见问题与进阶技巧，助你用手机高效搭建个人网站。">
+    <meta property="og:image" content="https://alhkxsj.github.io/images/home-bg.webp">
+    <meta property="og:url" content="https://alhkxsj.github.io/install-termux.html">
+    <meta property="og:type" content="article">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Termux 建站超详细教程 | Termux 建站全攻略">
+    <meta name="twitter:description" content="终极 Termux 建站教程，涵盖 Termux 安装、环境配置、工具安装、SSH 配置、git 推送、常见问题与进阶技巧，助你用手机高效搭建个人网站。">
+    <meta name="twitter:image" content="https://alhkxsj.github.io/images/home-bg.webp">
+
     <!-- 样式文件 -->
     <link rel="stylesheet" href="style.css">
     <!-- SVG Favicon，防止 404 -->
@@ -29,7 +44,7 @@
                 <ol>
                     <li>
                         <b>不要直接在酷安/应用商店下载安装！</b>  
-                        推荐到 <a href="https://f-droid.org/packages/com.termux/" target="_blank">F-Droid</a> 或 <a href="https://github.com/termux/termux-app/releases" target="_blank">GitHub官方Releases</a> 下载最新版 <b>Termux APK</b>。
+                        推荐到 <a href="https://f-droid.org/packages/com.termux/" target="_blank" rel="noopener noreferrer">F-Droid</a> 或 <a href="https://github.com/termux/termux-app/releases" target="_blank" rel="noopener noreferrer">GitHub官方Releases</a> 下载最新版 <b>Termux APK</b>。
                     </li>
                     <li>
                         安装后第一次打开时，可能会弹出存储权限提示，建议同意。
@@ -79,8 +94,7 @@
                         <code>cat ~/.ssh/id_ed25519.pub</code><br>
                         长按终端复制输出的全部内容。
                     </li>
-                    <li>
-                        打开 <a href="https://github.com/settings/keys" target="_blank">GitHub SSH Keys</a> 页面，<br>
+https://github.com/settings/keys" target="_blank" rel="noopener noreferrer">GitHub SSH Keys</a> 页面，<br>
                         点击 <b>New SSH key</b>，把刚才复制的内容粘贴进去、保存。
                     </li>
                     <li>
@@ -150,28 +164,4 @@ git push
                     </li>
                     <li>
                         <b>Q: 终端复制粘贴怎么用？</b><br>
-                        A: 长按终端窗口可弹出复制粘贴菜单。
-                    </li>
-                </ul>
-            </section>
-
-            <section>
-                <h2>八、进阶技巧</h2>
-                <ul>
-                    <li>
-                        <b>安装 Oh My Zsh 美化终端：</b><br>
-                        <code>pkg install zsh -y</code><br>
-                        <code>chsh -s zsh</code><br>
-                        <code>sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</code>
-                    </li>
-                    <li>
-                        <b>用 VSCode 远程编辑 Termux 文件：</b><br>
-                        Termux 安装 openssh 后可用 SFTP 方式用电脑 VSCode 编辑手机里的文件。
-                    </li>
-                </ul>
-            </section>
-        </div>
-    </main>
-    <script src="app.js"></script>
-</body>
-</html>
+                        A: 长按终端窗口可弹出复制粘

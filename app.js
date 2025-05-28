@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 粒子背景初始化和自适应
     const canvas = document.getElementById('particle-canvas');
+    if (!canvas || !canvas.getContext) return;
     const ctx = canvas.getContext('2d');
+
     function resizeCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -24,13 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
             this.radius = Math.random() * 2.2 + 1.3;
         }
         draw() {
+            ctx.save();
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
             ctx.fillStyle = `rgba(255,255,255,${this.alpha})`;
             ctx.shadowColor = '#1de9b6';
             ctx.shadowBlur = 12;
             ctx.fill();
-            ctx.shadowBlur = 0;
+            ctx.restore();
         }
         update() {
             this.x += this.velocity.x;
@@ -42,8 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
             this.draw();
         }
     }
+
     // 粒子系统
-    const particles = Array.from({ length: 130 }, () => new Particle());
+    const PARTICLE_COUNT = 130;
+    const particles = Array.from({ length: PARTICLE_COUNT }, () => new Particle());
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         particles.forEach(p => p.update());
@@ -53,29 +58,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 导航滑块动画
     const nav = document.querySelector('.glass-nav');
-    const slider = nav.querySelector('.nav-slider');
-    const links = Array.from(nav.querySelectorAll('a'));
-    function updateSlider(target) {
-        const rect = target.getBoundingClientRect();
-        const navRect = nav.getBoundingClientRect();
-        slider.style.left = (rect.left - navRect.left) + 'px';
-        slider.style.width = rect.width + 'px';
-    }
-    links.forEach(link => {
-        link.addEventListener('mouseenter', () => updateSlider(link));
-        link.addEventListener('focus', () => updateSlider(link));
-    });
-    nav.addEventListener('mouseleave', () => {
-        const active = nav.querySelector('.active') || links[0];
-        updateSlider(active);
-    });
-    // 激活当前导航
-    links.forEach(link => {
-        if(link.href === window.location.href) {
-            link.classList.add('active');
-            updateSlider(link);
+    if (nav) {
+        const slider = nav.querySelector('.nav-slider');
+        const links = Array.from(nav.querySelectorAll('a'));
+        function updateSlider(target) {
+            if (!target || !slider) return;
+            const rect = target.getBoundingClientRect();
+            const navRect = nav.getBoundingClientRect();
+            slider.style.left = (rect.left - navRect.left) + 'px';
+            slider.style.width = rect.width + 'px';
         }
-    });
+        links.forEach(link => {
+            link.addEventListener('mouseenter', () => updateSlider(link));
+            link.addEventListener('focus', () => updateSlider(link));
+        });
+        nav.addEventListener('mouseleave', () => {
+            const active = nav.querySelector('.active') || links[0];
+            updateSlider(active);
+        });
+        // 激活当前导航
+        links.forEach(link => {
+            // 只比较 pathname，防止锚点或参数干扰
+            if (link.pathname === window.location.pathname) {
+                link.classList.add('active');
+                updateSlider(link);
+            }
+        });
+    }
 
     // 主标题点击动画
     const title = document.getElementById('main-title');
@@ -90,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 400);
         });
     }
-    // 添加 page-loaded 类，保证内容丝滑出现
+
+    // 内容淡入
     document.body.classList.add('page-loaded');
 });
