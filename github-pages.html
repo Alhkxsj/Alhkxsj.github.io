@@ -1,130 +1,120 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Pages 部署全解 | Termux 建站全攻略</title>
-    <!-- SEO 优化 -->
-    <meta name="description" content="超详细 GitHub Pages 免费建站部署教程，含仓库创建、网页上传、域名绑定、常见问题排查，手机/电脑均适用。">
-    <meta name="keywords" content="GitHub Pages, 免费建站, 部署, 域名绑定, Termux, 教程">
-    <!-- Open Graph 社交分享 -->
-    <meta property="og:title" content="GitHub Pages 部署全解 | Termux 建站全攻略">
-    <meta property="og:description" content="超详细 GitHub Pages 免费hkxsj.github.io/images/home-bg.webp">
-    <meta property="og:url" content="https://alhkxsj.github.io/github-pages.html">
-    <meta property="og:type" content="article">
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="GitHub Pages 部署全解 | Termux 建站全攻略">
-    <meta name="twitter:description" content="超详细 GitHub Pages 免费建站部署教程，含仓库创建、网页上传、域名绑定、常见问题排查，手机/电脑均适用。">
-    <meta name="twitter:image" content="https://alhkxsj.github.io/images/home-bg.webp">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="tutorial-style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Pages 部署全解 | Termux 建站全攻略</title>
+  <meta name="description" content="超详细 GitHub Pages 免费建站部署教程，含仓库创建、网页上传、域名绑定、常见问题排查，手机/电脑均适用。">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="tutorial-style.css">
 </head>
 <body class="tutorial-page">
-    <canvas id class="nav-slider"></div>
-        <a href="index.html" data-hover="Home">首页</a>
-        <a href="install-termux.html" data-hover="Termux">环境配置</a>
-        <a href="github-pages.html" data-hover="GitHub" class="active">项目部署</a>
-        <a href="markdown-guide.html" data-hover="Markdown">内容创作</a>
-        <a href="about.html" data-hover="About">关于</a>
-    </nav>
-    <main class="glass-container">
-        <h1 id="main-title" class="animate__animated animate__fadeInDown">🚀 GitHub Pages 部署全解</h1>
-        <div class="tutorial-content">
-            <section>
-                <h2>一、什么是 GitHub Pages？</h2>
-                <p>
-                    <b>GitHub Pages</b> 是 GitHub 官方提供的 <b>免费静态网页托管服务</b>，适合搭建个人主页、项目演示、作品集等。无需服务器、无需备案，全球可访问，一键部署，适合新手快速上手建站。
-                </p>
-            </section>
-            <section>
-                <h2>二、创建站点专用仓库</h2>
-                <ol>
-                    <li>登录你的 GitHub 账号，点击右上角 <b>New repository</b> 创建新仓库。</li>
-                    <li>
-                        <b>仓库名称必须为</b> <code>你的用户名.github.io</code>。<br>
-                        例如用户名 <code>Alhkxsj</code>，仓库名就为 <code>Alhkxsj.github.io</code>。
-                    </li>
-                    <li>建议勾选 <b>Initialize this repository with a README</b>。</li>
-                    <li>可选：添加 <code>.gitignore</code> 和 <code>LICENSE</code>。</li>
-                </ol>
-            </section>
-            <section>
-                <h2>三、上传网页文件</h2>
-                <ol>
-                    <li>
-                        用 Termux 或 PC 克隆仓库：
-                        <pre><code>git clone git@github.com:你的用户名/你的用户名.github.io.git</code></pre>
-                    </li>
-                    <li>
-                        将你的 <code>index.html</code>、<code>style.css</code>、图片等网页文件放进仓库根目录。
-                        <ul>
-                            <li>主页文件必须为 <code>index.html</code></li>
-                            <li><code>index.html</code> 必须在仓库根目录</li>
-                        </ul>
-                    </li>
-                    <li>
-                        提交并推送到 GitHub：
-                        <pre><code>git add .
+  <canvas id="particle-canvas"></canvas>
+  <div class="bg-overlay"></div>
+  <nav class="glass-nav">
+    <div class="nav-slider"></div>
+    <a href="index.html" data-hover="Home">首页</a>
+    <a href="install-termux.html" data-hover="Termux">环境配置</a>
+    <a href="github-pages.html" data-hover="GitHub" class="active">项目部署</a>
+    <a href="markdown-guide.html" data-hover="Markdown">内容创作</a>
+    <a href="about.html" data-hover="About">关于</a>
+  </nav>
+  <main class="glass-container">
+    <h1 id="main-title">🚀 GitHub Pages 部署全解</h1>
+    <div class="tutorial-content">
+      <section>
+        <h2>一、什么是 GitHub Pages？</h2>
+        <p>
+          <b>GitHub Pages</b> 是 GitHub 官方提供的 <b>免费静态网页托管服务</b>，适合搭建个人主页、项目演示、作品集等。无需服务器、无需备案，全球可访问，一键部署，适合新手快速上手建站。
+        </p>
+      </section>
+      <section>
+        <h2>二、创建站点专用仓库</h2>
+        <ol>
+          <li>登录你的 GitHub 账号，点击右上角 <b>New repository</b> 创建新仓库。</li>
+          <li>
+            <b>仓库名称必须为</b> <code>你的用户名.github.io</code>。<br>
+            例如用户名 <code>Alhkxsj</code>，仓库名就为 <code>Alhkxsj.github.io</code>。
+          </li>
+          <li>建议勾选 <b>Initialize this repository with a README</b>。</li>
+          <li>可选：添加 <code>.gitignore</code> 和 <code>LICENSE</code>。</li>
+        </ol>
+      </section>
+      <section>
+        <h2>三、上传网页文件</h2>
+        <ol>
+          <li>
+            用 Termux 或 PC 克隆仓库：
+            <pre><code>git clone git@github.com:你的用户名/你的用户名.github.io.git</code></pre>
+          </li>
+          <li>
+            将你的 <code>index.html</code>、<code>style.css</code>、图片等网页文件放进仓库根目录。
+            <ul>
+              <li>主页文件必须为 <code>index.html</code></li>
+              <li><code>index.html</code> 必须在仓库根目录</li>
+            </ul>
+          </li>
+          <li>
+            提交并推送到 GitHub：
+            <pre><code>git add .
 git commit -m "初始化网站"
 git push</code></pre>
-                    </li>
-                </ol>
-            </section>
-            <section>
-                <h2>四、访问你的网站</h2>
-                <p>
-                    在浏览器输入：<br>
-                    <code>https://你的用户名.github.io</code><br>
-                    一般 1-10 分钟内网站即可上线。如未上线请稍等片刻并刷新页面。
-                </p>
-            </section>
-            <section>
-                <h2>五、自定义域名（可选）</h2>
-                <ol>
-                    <li>
-                        在仓库根目录新建名为 <code>CNAME</code> 的文本文件，文件内容为你的自定义域名（如 <code>www.example.com</code>）。
-                    </li>
-                    <li>
-                        在域名服务商处设置 CNAME 解析，将 <code>www.example.com</code> 指向 <code>你的用户名.github.io</code>。
-                        <ul>
-                            <li>等待 DNS 生效（通常几分钟到 24 小时）</li>
-                        </ul>
-                    </li>
-                    <li>推送 <code>CNAME</code> 文件，GitHub Pages 会自动启用你的域名。</li>
-                </ol>
-            </section>
-            <section>
-                <h2>六、常见问题与排查</h2>
-                <ul>
-                    <li>
-                        <b>Q: 网站打不开？</b><br>
-                        A: 检查仓库名、<code>index.html</code> 位置，确认已推送到 GitHub。
-                    </li>
-                    <li>
-                        <b>Q: 页面长时间未更新？</b><br>
-                        A: 清理浏览器缓存，或在仓库 <b>Settings &rarr; Pages</b> 页面点击 <b>Rebuild</b>。
-                    </li>
-                    <li>
-                        <b>Q: 自定义域名不生效？</b><br>
-                        A: 检查 <code>CNAME</code> 文件内容和域名解析，等待 DNS 生效。
-                    </li>
-                    <li>
-                        <b>Q: 如何开启 HTTPS？</b><br>
-                        A: GitHub Pages 会自动为所有自定义域名提供免费 HTTPS。
-                    </li>
-                </ul>
-            </section>
-            <section>
-                <h2>七、官方文档与参考资料</h2>
-                <ul>
-                    <li><a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages 官方入口</a></li>
-                    <li><a href="https://docs.github.com/zh/pages" target="_blank" rel="noopener noreferrer">GitHub Pages 中文文档</a></li>
-                </ul>
-            </section>
-        </div>
-    </main>
-    <script src="app.js"></script>
+          </li>
+        </ol>
+      </section>
+      <section>
+        <h2>四、访问你的网站</h2>
+        <p>
+          在浏览器输入：<br>
+          <code>https://你的用户名.github.io</code><br>
+          一般 1-10 分钟内网站即可上线。如未上线请稍等片刻并刷新页面。
+        </p>
+      </section>
+      <section>
+        <h2>五、自定义域名（可选）</h2>
+        <ol>
+          <li>
+            在仓库根目录新建名为 <code>CNAME</code> 的文本文件，文件内容为你的自定义域名（如 <code>www.example.com</code>）。
+          </li>
+          <li>
+            在域名服务商处设置 CNAME 解析，将 <code>www.example.com</code> 指向 <code>你的用户名.github.io</code>。
+            <ul>
+              <li>等待 DNS 生效（通常几分钟到 24 小时）</li>
+            </ul>
+          </li>
+          <li>推送 <code>CNAME</code> 文件，GitHub Pages 会自动启用你的域名。</li>
+        </ol>
+      </section>
+      <section>
+        <h2>六、常见问题与排查</h2>
+        <ul>
+          <li>
+            <b>Q: 网站打不开？</b><br>
+            A: 检查仓库名、<code>index.html</code> 位置，确认已推送到 GitHub。
+          </li>
+          <li>
+            <b>Q: 页面长时间未更新？</b><br>
+            A: 清理浏览器缓存，或在仓库 <b>Settings &rarr; Pages</b> 页面点击 <b>Rebuild</b>。
+          </li>
+          <li>
+            <b>Q: 自定义域名不生效？</b><br>
+            A: 检查 <code>CNAME</code> 文件内容和域名解析，等待 DNS 生效。
+          </li>
+          <li>
+            <b>Q: 如何开启 HTTPS？</b><br>
+            A: GitHub Pages 会自动为所有自定义域名提供免费 HTTPS。
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>七、官方文档与参考资料</h2>
+        <ul>
+          <li><a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages 官方入口</a></li>
+          <li><a href="https://docs.github.com/zh/pages" target="_blank" rel="noopener noreferrer">GitHub Pages 中文文档</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+  <script src="app.js"></script>
 </body>
 </html>
