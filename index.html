@@ -2,40 +2,51 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <title>Termux 建站全攻略 | 手机也能轻松建网站</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Termux建站全指南</title>
+    <!-- SEO优化+OG -->
+    <meta name="description" content="超详细Termux+GitHub Pages手机建站教程，涵盖环境配置、项目部署、内容创作、域名绑定等，零基础也能学会。">
+    <meta property="og:title" content="Termux 建站全攻略 | 手机也能轻松建网站">
+    <meta property="og:description" content="超详细Termux+GitHub Pages手机建站教程，涵盖环境配置、项目部署、内容创作、域名绑定等，零基础也能学会。">
+    <meta property="og:image" content="https://alhkxsj.github.io/images/home-bg.webp">
+    <meta property="og:url" content="https://alhkxsj.github.io/">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>">
 </head>
 <body class="home-page">
     <canvas id="particle-canvas"></canvas>
     <div class="bg-overlay"></div>
     <nav class="glass-nav">
         <div class="nav-slider"></div>
-        <a href="/" data-hover="Home" class="active">首页</a>
+        <a href="index.html" data-hover="Home" class="active">首页</a>
         <a href="install-termux.html" data-hover="Termux">环境配置</a>
         <a href="github-pages.html" data-hover="GitHub">项目部署</a>
         <a href="markdown-guide.html" data-hover="Markdown">内容创作</a>
         <a href="about.html" data-hover="About">关于</a>
     </nav>
     <main class="glass-container">
-        <h1 id="main-title" class="animate__animated animate__fadeInDown">📱 Termux建站全攻略</h1>
+        <h1 id="main-title" class="animate__animated animate__fadeInDown">Termux 建站全攻略</h1>
         <div class="content-grid">
-            <section class="feature-card" onclick="location.href='install-termux.html'">
-                <div class="card-icon">🔧</div>
-                <h2>环境配置指南</h2>
-                <p>从安装到基础配置一站式教程</p>
-            </section>
-            <section class="feature-card" onclick="location.href='github-pages.html'">
+            <div class="feature-card">
+                <div class="card-icon">📱</div>
+                <h2>环境配置</h2>
+                <p>Termux 安装、工具配置与 SSH 推送，手机也能玩转 GitHub。</p>
+                <a href="install-termux.html">查看教程</a>
+            </div>
+            <div class="feature-card">
                 <div class="card-icon">🚀</div>
-                <h2>GitHub部署</h2>
-                <p>免费托管你的网站项目</p>
-            </section>
-            <section class="feature-card" onclick="location.href='markdown-guide.html'">
+                <h2>项目部署</h2>
+                <p>GitHub Pages 免费托管，无服务器也能全球访问，支持自定义域名。</p>
+                <a href="github-pages.html">查看教程</a>
+            </div>
+            <div class="feature-card">
                 <div class="card-icon">✍️</div>
-                <h2>Markdown写作</h2>
-                <p>优雅高效的内容创作方式</p>
-            </section>
+                <h2>内容创作</h2>
+                <p>Markdown 高效写作，从代码、表格到图片，轻松创作高质量内容。</p>
+                <a href="markdown-guide.html">查看教程</a>
+            </div>
         </div>
     </main>
     <script src="app.js"></script>

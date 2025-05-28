@@ -4,31 +4,24 @@
     <meta charset="UTF-8">
     <title>Termux 建站超详细教程 | Termux 建站全攻略</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- SEO 优化 -->
     <meta name="description" content="终极 Termux 建站教程，涵盖 Termux 安装、环境配置、工具安装、SSH 配置、git 推送、常见问题与进阶技巧，助你用手机高效搭建个人网站。">
     <meta name="keywords" content="Termux, 建站, 教程, 环境配置, GitHub, SSH, Android, 手机建站">
-    <!-- Open Graph 社交分享 -->
     <meta property="og:title" content="Termux 建站超详细教程 | Termux 建站全攻略">
     <meta property="og:description" content="终极 Termux 建站教程，涵盖 Termux 安装、环境配置、工具安装、SSH 配置、git 推送、常见问题与进阶技巧，助你用手机高效搭建个人网站。">
     <meta property="og:image" content="https://alhkxsj.github.io/images/home-bg.webp">
     <meta property="og:url" content="https://alhkxsj.github.io/install-termux.html">
     <meta property="og:type" content="article">
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Termux 建站超详细教程 | Termux 建站全攻略">
     <meta name="twitter:description" content="终极 Termux 建站教程，涵盖 Termux 安装、环境配置、工具安装、SSH 配置、git 推送、常见问题与进阶技巧，助你用手机高效搭建个人网站。">
     <meta name="twitter:image" content="https://alhkxsj.github.io/images/home-bg.webp">
-
-    <!-- 样式文件 -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="tutorial-style.css">
-    <!-- SVG Favicon，防止 404 -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>">
 </head>
 <body>
     <canvas id="particle-canvas"></canvas>
     <div class="bg-overlay"></div>
-
     <nav class="glass-nav">
         <div class="nav-slider"></div>
         <a href="index.html" data-hover="Home">首页</a>
@@ -37,7 +30,6 @@
         <a href="markdown-guide.html" data-hover="Markdown">内容创作</a>
         <a href="about.html" data-hover="About">关于</a>
     </nav>
-
     <main class="glass-container">
         <h1 id="main-title">📱 Termux 建站超详细教程</h1>
         <div class="tutorial-content">
@@ -45,7 +37,7 @@
                 <h2>一、Termux 下载与安装</h2>
                 <ol>
                     <li>
-                        <b>不要直接在酷安/应用商店下载安装！</b><br>
+                        <b>不要直接在酷安/应用商店下载安装！</b>  
                         推荐到 <a href="https://f-droid.org/packages/com.termux/" target="_blank" rel="noopener noreferrer">F-Droid</a> 或 <a href="https://github.com/termux/termux-app/releases" target="_blank" rel="noopener noreferrer">GitHub官方Releases</a> 下载最新版 <b>Termux APK</b>。
                     </li>
                     <li>
@@ -56,7 +48,6 @@
                     </li>
                 </ol>
             </section>
-
             <section>
                 <h2>二、更新软件源与环境</h2>
                 <ol>
@@ -70,9 +61,10 @@
                     </li>
                 </ol>
             </section>
-
             <section>
-                git：<code>pkg install git -y</code></li>
+                <h2>三、安装常用关键工具</h2>
+                <ol>
+                    <li>安装 git：<code>pkg install git -y</code></li>
                     <li>安装 curl：<code>pkg install curl -y</code></li>
                     <li>安装 nano/vim（文本编辑器）：<code>pkg install nano -y</code></li>
                     <li>安装 openssh（用于 SSH 连接）：<code>pkg install openssh -y</code></li>
@@ -80,7 +72,6 @@
                     <li>安装 Node.js（可选）：<code>pkg install nodejs -y</code></li>
                 </ol>
             </section>
-
             <section>
                 <h2>四、配置 SSH 密钥用于 GitHub 推送</h2>
                 <ol>
@@ -105,7 +96,6 @@
                     </li>
                 </ol>
             </section>
-
             <section>
                 <h2>五、克隆 GitHub 仓库到本地</h2>
                 <ol>
@@ -124,7 +114,6 @@
                     </li>
                 </ol>
             </section>
-
             <section>
                 <h2>六、编辑和上传你的网页</h2>
                 <ol>
@@ -147,7 +136,6 @@ git push
                     </li>
                 </ol>
             </section>
-
             <section>
                 <h2>七、常见问题与解决办法</h2>
                 <ul>
@@ -164,4 +152,5 @@ git push
                         A: 建议用 nano，存为 UTF-8 编码。
                     </li>
                     <li>
-                  
+                        <b>Q: 终端复制粘贴怎么用？</b><br>
+                        A: 长按终端窗口可弹出复
