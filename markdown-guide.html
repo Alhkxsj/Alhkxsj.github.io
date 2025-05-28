@@ -4,61 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Markdown写作指南</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="tutorial-page">
-    <div class="bg-overlay"></div>
     <canvas id="particle-canvas"></canvas>
-
+    <div class="bg-overlay"></div>
     <nav class="glass-nav">
-    <div class="nav-slider"></div>
+        <div class="nav-slider"></div>
         <a href="/" data-hover="Home">首页</a>
         <a href="install-termux.html" data-hover="Termux">环境配置</a>
         <a href="github-pages.html" data-hover="GitHub">项目部署</a>
         <a href="markdown-guide.html" data-hover="Markdown" class="active">内容创作</a>
         <a href="about.html" data-hover="About">关于</a>
     </nav>
-
     <main class="glass-container">
-        <h1 id="main-title">✍️ Markdown高效写作</h1>
+        <h1 id="main-title" class="animate__animated animate__fadeInDown">✍️ Markdown 高效写作</h1>
         <div class="tutorial-content">
             <section>
-                <h2>一、Markdown简介</h2>
-                <p>Markdown是一种轻量级标记语言，简洁易学，非常适合写文档、博客、项目说明等。</p>
+                <h2>一、Markdown 简介</h2>
+                <p>Markdown 是一种轻量级标记语言，广泛用于文档、博客、代码说明等场景。其语法简洁明了，便于书写和阅读。</p>
             </section>
             <section>
                 <h2>二、基础语法</h2>
                 <ul>
                     <li>
-                        <strong>标题：</strong><br>
+                        <strong>标题：</strong>
                         <pre><code># 一级标题
 ## 二级标题
 ### 三级标题</code></pre>
                     </li>
                     <li>
-                        <strong>加粗/斜体：</strong><br>
-                        <pre><code>**加粗**
-*斜体*</code></pre>
+                        <strong>段落与换行：</strong>
+                        <pre><code>这是一个段落。
+这是同一个段落，<br>这是换行。</code></pre>
+                        <p>段落之间空一行，换行可用两个空格或 &lt;br&gt; 标签。</p>
                     </li>
                     <li>
-                        <strong>无序/有序列表：</strong><br>
-                        <pre><code>- 无序列表项
-- 另一项
+                        <strong>加粗、斜体、删除线：</strong>
+                        <pre><code>**加粗文本**
+*斜体文本*
+~~删除线~~</code></pre>
+                    </li>
+                    <li>
+                        <strong>引用：</strong>
+                        <pre><code>> 这是引用内容</code></pre>
+                    </li>
+                    <li>
+                        <strong>无序/有序列表：</strong>
+                        <pre><code>- 无序列表项1
+- 无序列表项2
 
-1. 有序列表项
-2. 另一项</code></pre>
+1. 有序列表项1
+2. 有序列表项2</code></pre>
                     </li>
                     <li>
-                        <strong>插入链接和图片：</strong><br>
-                        <pre><code>[链接文字](https://example.com)
-![图片描述](图片地址)</code></pre>
+                        <strong>链接与图片：</strong>
+                        <pre><code>[百度](https://www.baidu.com)
+![Logo](https://github.com/favicon.ico)</code></pre>
                     </li>
                     <li>
-                        <strong>代码：</strong><br>
+                        <strong>分割线：</strong>
+                        <pre><code>---</code></pre>
+                    </li>
+                    <li>
+                        <strong>行内代码和代码块：</strong>
                         <pre><code>`行内代码`
 
 ```python
-print("代码块")
+print("Hello, Markdown!")
 ```</code></pre>
                     </li>
                 </ul>
@@ -67,39 +81,54 @@ print("代码块")
                 <h2>三、进阶用法</h2>
                 <ul>
                     <li>
-                        <strong>表格：</strong><br>
+                        <strong>任务列表：</strong>
+                        <pre><code>- [x] 已完成
+- [ ] 未完成</code></pre>
+                    </li>
+                    <li>
+                        <strong>表格：</strong>
                         <pre><code>| 姓名 | 年龄 |
 | ---- | ---- |
 | 张三 | 20   |
 | 李四 | 22   |</code></pre>
                     </li>
                     <li>
-                        <strong>引用：</strong><br>
-                        <pre><code>> 这是引用内容</code></pre>
+                        <strong>多级列表：</strong>
+                        <pre><code>- 一级
+  - 二级
+    - 三级</code></pre>
                     </li>
                     <li>
-                        <strong>任务列表：</strong><br>
-                        <pre><code>- [x] 已完成
-- [ ] 未完成</code></pre>
+                        <strong>注释：</strong>
+                        <pre><code>&lt;!-- 这是注释，不会在页面显示 --&gt;</code></pre>
+                    </li>
+                    <li>
+                        <strong>脚注：</strong>
+                        <pre><code>Markdown 是一个很棒的工具[^1]。
+[^1]: 这里是脚注内容。</code></pre>
                     </li>
                 </ul>
             </section>
             <section>
-                <h2>四、Markdown预览工具</h2>
+                <h2>四、常用编辑器与预览工具</h2>
                 <ul>
-                    <li>GitHub、Gitee等平台自带预览。</li>
-                    <li>本地推荐 <a href="https://typora.io/" target="_blank">Typora</a>、Mark Text、VS Code 插件。</li>
+                    <li>在线编辑器：<a href="https://markdown.com.cn/editor/" target="_blank">markdown.com.cn/editor</a></li>
+                    <li>本地软件：Typora、Mark Text</li>
+                    <li>VS Code 插件：Markdown All in One</li>
+                    <li>平台自带：GitHub、Gitee、语雀等都支持 Markdown 预览</li>
                 </ul>
             </section>
             <section>
-                <h2>五、常见问题</h2>
+                <h2>五、常见问题与排查</h2>
                 <ul>
-                    <li><strong>Q: 图片无法显示？</strong><br>
-                        A: 路径要用相对或绝对链接，注意文件名大小写，图片要已提交到仓库。</li>
-                    <li><strong>Q: 语法无效？</strong><br>
-                        A: 检查符号是否英文状态，缩进和空格是否正确。</li>
-                    <li><strong>Q: 如何插入目录？</strong><br>
-                        A: 手动添加锚点，或使用 VS Code 插件自动生成。</li>
+                    <li><strong>Q：图片无法显示？</strong><br>
+                        A：检查图片路径是否正确，文件名大小写是否一致，图片已上传到仓库。</li>
+                    <li><strong>Q：语法无效？</strong><br>
+                        A：符号需为英文状态，缩进空格要规范。</li>
+                    <li><strong>Q：如何插入目录？</strong><br>
+                        A：手动添加锚点或使用 VS Code 插件自动生成目录。</li>
+                    <li><strong>Q：换行失效？</strong><br>
+                        A：末尾加两个空格或使用 &lt;br&gt; 实现换行。</li>
                 </ul>
             </section>
             <section>
@@ -107,11 +136,29 @@ print("代码块")
                 <ul>
                     <li><a href="https://markdown.com.cn/" target="_blank">Markdown 中文教程</a></li>
                     <li><a href="https://docs.github.com/zh/github/writing-on-github" target="_blank">GitHub Markdown文档</a></li>
+                    <li><a href="https://www.markdownguide.org/" target="_blank">Markdown Guide (英文)</a></li>
                 </ul>
+            </section>
+            <section>
+                <h2>七、实用示例</h2>
+                <pre><code># 个人简历
+
+## 基本信息
+- 姓名：张三
+- 学校：XX大学
+- 专业：软件工程
+
+## 技能
+- HTML/CSS
+- Python
+- Markdown
+
+## 联系方式
+- 邮箱：xxx@example.com
+</code></pre>
             </section>
         </div>
     </main>
-
     <script src="app.js"></script>
 </body>
 </html>
