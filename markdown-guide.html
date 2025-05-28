@@ -3,30 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Markdown 写作详细指南 | Termux 建站全攻略</title>
-  <meta name="description" content="Markdown 高效写作进阶指南，涵盖 Markdown 基础语法、进阶技巧、常用工具与平台、常见问题与案例，助你轻松掌握 Markdown 内容创作。">
-  <meta name="keywords" content="Markdown, 写作, 教程, 语法, 工具, GitHub, Termux, 内容创作">
+  <title>内容创作 | Termux 建站全攻略</title>
+  <meta name="description" content="Markdown 内容创作进阶教程，涵盖基础语法、进阶技巧、常用工具与案例，助你轻松掌握 Markdown 写作。">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="tutorial-style.css">
 </head>
 <body class="tutorial-page">
- data-hover="Home">首页</a>
+  <canvas id="particle-canvas"></canvas>
+  <div class="bg-overlay"></div>
+  <nav class="glass-nav">
+    <div class="nav-slider"></div>
+    <a href="index.html" data-hover="Home">首页</a>
     <a href="install-termux.html" data-hover="Termux">环境配置</a>
     <a href="github-pages.html" data-hover="GitHub">项目部署</a>
     <a href="markdown-guide.html" data-hover="Markdown" class="active">内容创作</a>
     <a href="about.html" data-hover="About">关于</a>
   </nav>
   <main class="glass-container">
-    <h1 id="main-title">✍️ Markdown 高效写作进阶指南</h1>
+    <h1 id="main-title">✍️ 内容创作 · Markdown 高效写作指南</h1>
     <div class="tutorial-content">
       <section>
         <h2>一、Markdown 简介</h2>
         <p>
-          <strong>Markdown</strong> 是一种轻量级标记语言，广泛用于文档、博客、代码说明、写作等场景。语法简单、兼容性强，可一键转换为 HTML，极大提升写作效率。
+          <strong>Markdown</strong> 是一种轻量级文档标记语言，广泛用于博客、项目文档、技术写作等，兼容性极强，写作高效。
         </p>
       </section>
       <section>
-        <h2>二、基础语法详解</h2>
+        <h2>二、基础语法一览</h2>
         <ul>
           <li>
             <strong>标题：</strong>
@@ -35,15 +38,7 @@
 ### 三级标题</code></pre>
           </li>
           <li>
-            <strong>段落与换行：</strong>
-            <pre><code>这是一个段落。
-
-这是另一个段落。  
-换行演示</code></pre>
-            <p>段落间空一行。换行请在行末加两个空格或用 &lt;br&gt;。</p>
-          </li>
-          <li>
-            <strong>文本样式：</strong>
+            <strong>加粗/斜体/删除线：</strong>
             <pre><code>**加粗文本**
 *斜体文本*
 ~~删除线~~</code></pre>
@@ -54,29 +49,29 @@
           </li>
           <li>
             <strong>无序/有序列表：</strong>
-            <precode></pre>
+            <pre><code>- 项目A
+- 项目B
+
+1. 第一项
+2. 第二项</code></pre>
           </li>
           <li>
             <strong>链接与图片：</strong>
             <pre><code>[百度](https://www.baidu.com)
-![Logo](https://github.com/favicon.ico)</code></pre>
-          </li>
-          <li>
-            <strong>分割线：</strong>
-            <pre><code>---</code></pre>
+![图片Alt](https://github.com/favicon.ico)</code></pre>
           </li>
           <li>
             <strong>代码与代码块：</strong>
             <pre><code>`行内代码`
 
-```python
-print("Hello, Markdown!")
+```bash
+echo Hello Markdown
 ```</code></pre>
           </li>
         </ul>
       </section>
       <section>
-        <h2>三、进阶用法扩展</h2>
+        <h2>三、进阶用法</h2>
         <ul>
           <li>
             <strong>任务列表：</strong>
@@ -87,7 +82,7 @@ print("Hello, Markdown!")
             <strong>表格：</strong>
             <pre><code>| 姓名 | 年龄 |
 | ---- | ---- |
-| 张三 | 20   |
+| 张三 | 18   |
 | 李四 | 22   |</code></pre>
           </li>
           <li>
@@ -98,59 +93,50 @@ print("Hello, Markdown!")
           </li>
           <li>
             <strong>注释：</strong>
-            <pre><code>&lt;!-- 这是注释，不会在页面显示 --&gt;</code></pre>
+            <pre><code>&lt;!-- 这是注释 --&gt;</code></pre>
           </li>
           <li>
             <strong>脚注：</strong>
             <pre><code>Markdown 很棒[^1]。
 [^1]: 这里是脚注内容。</code></pre>
           </li>
-          <li>
-            <strong>目录自动生成：</strong>
-            <p>VS Code 插件、Typora、Gitee、GitHub 等平台均支持自动生成目录，或通过 <code>[TOC]</code> 语法。</p>
-          </li>
         </ul>
       </section>
       <section>
-        <h2>四、常用编辑器与工具</h2>
+        <h2>四、常用工具推荐</h2>
         <ul>
-          <li>网页版：<a href="https://markdown.com.cn/editor/" target="_blank" rel="noopener noreferrer">markdown.com.cn/editor</a></li>
+          <li>网页版：<a href="https://markdown.com.cn/editor/" target="_blank">markdown.com.cn/editor</a></li>
           <li>本地软件：Typora、Mark Text、Obsidian</li>
           <li>VS Code 插件：Markdown All in One、Markdown Preview Enhanced</li>
-          <li>平台自带：GitHub、Gitee、语雀等都支持 Markdown 预览</li>
+          <li>平台自带：GitHub、Gitee、语雀等</li>
         </ul>
       </section>
       <section>
-        <h2>五、常见问题与排查</h2>
+        <h2>五、常见问题</h2>
         <ul>
           <li>
-            <strong>Q: 图片无法显示？</strong><br>
-            A: 检查图片路径、文件名大小写，确认图片已上传到仓库或正确引用外链。
+            <b>Q: 图片无法显示？</b><br>
+            A: 检查图片路径、文件名大小写、图片已上传。
           </li>
           <li>
-            <strong>Q: 语法无效？</strong><br>
-            A: 标点需为英文状态，缩进空格要规范。
+            <b>Q: 换行无效？</b><br>
+            A: 行末加两个空格，或用 &lt;br&gt; 强制换行。
           </li>
           <li>
-            <strong>Q: 如何插入目录？</strong><br>
-            A: 手动添加锚点，或用 VS Code 插件自动生成。
+            <b>Q: 如何插入目录？</b><br>
+            A: 可用 <code>[TOC]</code> 或工具自动生成。
           </li>
           <li>
-            <strong>Q: 换行无效？</strong><br>
-            A: 行末加两个空格或使用 &lt;br&gt;。
-          </li>
-          <li>
-            <strong>Q: 如何在网页部署 Markdown？</strong><br>
-            A: GitHub Pages 支持 Jekyll，可直接渲染 <code>.md</code> 文件为网页。
+            <b>Q: .md 文件能直接作为网页吗？</b><br>
+            A: GitHub Pages 支持 Jekyll，可自动渲染 Markdown。
           </li>
         </ul>
       </section>
       <section>
-        <h2>六、官方文档与扩展阅读</h2>
+        <h2>六、扩展学习</h2>
         <ul>
-          <li><a href="https://markdown.com.cn/" target="_blank" rel="noopener noreferrer">Markdown 中文教程</a></li>
-          <li><a href="https://docs.github.com/zh/github/writing-on-github" target="_blank" rel="noopener noreferrer">GitHub 官方 Markdown 文档</a></li>
-          <li><a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="noopener noreferrer">Mastering Markdown（英文）</a></li>
+          <li><a href="https://markdown.com.cn/" target="_blank">Markdown 中文教程</a></li>
+          <li><a href="https://docs.github.com/zh/github/writing-on-github" target="_blank">GitHub 官方 Markdown 文档</a></li>
         </ul>
       </section>
     </div>
