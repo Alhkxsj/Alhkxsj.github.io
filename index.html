@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="home-page">
-    <div class="bg-overlay"></div>
     <canvas id="particle-canvas"></canvas>
+    <div class="bg-overlay"></div>
 
     <nav class="glass-nav">
+        <div class="nav-slider"></div>
         <a href="/" data-hover="Home">首页</a>
         <a href="install-termux.html" data-hover="Termux">环境配置</a>
         <a href="github-pages.html" data-hover="GitHub">项目部署</a>
@@ -19,20 +20,18 @@
     </nav>
 
     <main class="glass-container">
-        <h1 class="animate__animated animate__fadeInDown">📱 Termux建站全攻略</h1>
+        <h1 id="main-title" class="animate__animated animate__fadeInDown">📱 Termux建站全攻略</h1>
         <div class="content-grid">
             <section class="feature-card" onclick="location.href='install-termux.html'">
                 <div class="card-icon">🔧</div>
                 <h2>环境配置指南</h2>
                 <p>从安装到基础配置一站式教程</p>
             </section>
-            
             <section class="feature-card" onclick="location.href='github-pages.html'">
                 <div class="card-icon">🚀</div>
                 <h2>GitHub部署</h2>
                 <p>免费托管你的网站项目</p>
             </section>
-            
             <section class="feature-card" onclick="location.href='markdown-guide.html'">
                 <div class="card-icon">✍️</div>
                 <h2>Markdown写作</h2>
