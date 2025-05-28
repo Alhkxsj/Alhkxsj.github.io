@@ -108,8 +108,6 @@ git push
 
 感谢所有开源社区的贡献者和支持者，特别是 Termux、GitHub Pages、Markdown 生态及各类前端 UI 库！
 
----
-
 ```
 
 ---
