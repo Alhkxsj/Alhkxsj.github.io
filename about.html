@@ -4,58 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>关于本站 | Termux 建站全攻略</title>
-    <!-- SEO优化 -->
-    <meta name="description" content="关于本站：了解作者、建站初衷、技术说明及联系方式，学习如何使用 Termux 和 GitHub Pages 搭建个人静态网站。">
-    <!-- Open Graph for social sharing -->
+    <meta name="description" content="Termux 建站全攻略 - 关于本站、作者简介、联系方式、项目说明与致谢。">
+    <meta name="keywords" content="关于, Termux 建站全攻略, 作者, 联系方式, 开源, 教程">
     <meta property="og:title" content="关于本站 | Termux 建站全攻略">
-    <meta property="og:description" content="了解作者、建站初衷、技术说明及联系方式，学习如何使用 Termux 和 GitHub Pages 搭建个人静态网站。">
+    <meta property="og:description" content="Termux 建站全攻略 - 关于本站、作者简介、联系方式、项目说明与致谢。">
     <meta property="og:image" content="https://alhkxsj.github.io/images/home-bg.webp">
     <meta property="og:url" content="https://alhkxsj.github.io/about.html">
-    <meta property="og:type" content="website">
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="关于本站 | Termux 建站全攻略">
-    <meta name="twitter:description" content="了解作者、建站初衷、技术说明及联系方式，学习如何使用 Termux 和 GitHub Pages 搭建个人静态网站。">
-    <meta name="twitter:image" content="https://alhkxsj.github.io/images/home-bg.webp">
+    <meta property="og:type" content="profile">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tutorial-style.css">
+    <style>
+      .avatar-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 24px;
+      }
+      .avatar-img {
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        border: 3px solid #fff5;
+        box-shadow: 0 2px 16px #0002;
+        object-fit: cover;
+        margin-bottom: 12px;
+        background: #eee;
+      }
+      .author-nickname {
+        font-size: 1.1em;
+        font-weight: bold;
+        margin-bottom: 6px;
+        color: #007fff;
+      }
+      .kuaishou-id {
+        display: inline-block;
+        background: #ffe066;
+        color: #c96f00;
+        font-weight: bold;
+        border-radius: 5px;
+        padding: 2px 10px;
+        margin-left: 8px;
+        font-size: 1em;
+        letter-spacing: .5px;
+      }
+      @media (max-width: 600px) {
+        .avatar-img { width: 64px; height: 64px; }
+        .author-nickname { font-size: 1em; }
+        .kuaishou-id { font-size: .95em; }
+      }
+    </style>
 </head>
-<body class="home-page">
+<body class="tutorial-page">
     <canvas id="particle-canvas"></canvas>
     <div class="bg-overlay"></div>
     <nav class="glass-nav">
         <div class="nav-slider"></div>
-        <a href="/" data-hover="Home">首页</a>
+        <a href="index.html" data-hover="Home">首页</a>
         <a href="install-termux.html" data-hover="Termux">环境配置</a>
         <a href="github-pages.html" data-hover="GitHub">项目部署</a>
         <a href="markdown-guide.html" data-hover="Markdown">内容创作</a>
         <a href="about.html" data-hover="About" class="active">关于</a>
     </nav>
     <main class="glass-container">
-        <h1 id="main-title" class="animate__animated animate__fadeInDown">📖 关于本站</h1>
-        <div class="about-content">
-            <p><strong>作者：</strong>快手：啊泠好困想睡觉</p>
-            <p><strong>说明：</strong>本网站仅供娱乐，内容和功能主要用于学习和展示。</p>
-            <h2>✨ 建站初衷</h2>
-            <ul>
-                <li>闲着没事干，掌握网站搭建的基本流程</li>
-                <li>记录学习过程，积累个人经验</li>
-            </ul>
-            <h2>🔧 技术说明</h2>
-            <ul>
-                <li>手机 Termux 环境</li>
-                <li>Git & GitHub</li>
-                <li>GitHub Pages 静态托管</li>
-                <li>HTML/CSS/JavaScript 基础</li>
-            </ul>
-            <h2>📬 联系方式</h2>
-            <ul>
-                <li>GitHub: <a href="https://github.com/Alhkxsj" target="_blank" rel="noopener noreferrer">Alhkxsj</a></li>
-            </ul>
-            <h2>🌱 备注</h2>
-            <ul>
-                <li>本页面内容仅供参考，详细教程请上B站自行搜索。</li>
-            </ul>
+        <h1 id="main-title" class="animate__animated animate__fadeInDown">关于本站</h1>
+        <div class="tutorial-content">
+            <div class="avatar-wrap">
+                <img class="avatar-img" src="images/avatar.png" alt="作者头像">
+                <div class="author-nickname">啊泠好困想睡觉
+                  <span class="kuaishou-id">快手号：alhkxsj1</span>
+                </div>
+            </div>
+            <section>
+                <h2>项目简介</h2>
+                <p>
+                    <strong>Termux 建站全攻略</strong> 是一个专为零基础用户打造的免费建站教程，帮助大家通过手机实现从环境配置到网站部署、内容创作、域名绑定的全流程操作。所有内容完全开源，欢迎学习与交流！
+                </p>
+            </section>
+            <section>
+                <h2>作者简介</h2>
+                <ul>
+                    <li>作者昵称：<b>Alhkxsj</b>（快手号：<b>alhkxsj1</b>）</li>
+                    <li>快手名称：<b>啊泠好困想睡觉</b></li>
+                    <li>爱好开源与分享，专注于手机端高效建站与自动化工具。</li>
+                </ul>
+            </section>
+            <section>
+                <h2>联系方式</h2>
+                <ul>
+                    <li>GitHub：<a href="https://github.com/Alhkxsj" target="_blank">Alhkxsj</a></li>
+                    <li>快手：<b>啊泠好困想睡觉</b>（快手号：<b>alhkxsj1</b>）</li>
+                    <li>B站/视频平台：可搜索“啊泠好困想睡觉”或“Termux建站全攻略”</li>
+                    <li>如有疑问、建议或合作意向，欢迎通过 GitHub Issues 留言</li>
+                </ul>
+            </section>
+            <section>
+                <h2>项目说明</h2>
+                <ul>
+                    <li>教程内容涵盖 Termux 配置、GitHub Pages 部署、Markdown 写作等，适合手机用户和新手。</li>
+                    <li>页面采用玻璃拟态+粒子动画风格，自适应移动端。</li>
+                    <li>本项目开源，MIT 协议，欢迎二次开发和投稿。</li>
+                </ul>
+            </section>
+            <section>
+                <h2>致谢</h2>
+                <ul>
+                    <li>感谢 Termux、GitHub Pages 等开源生态。</li>
+                    <li>感谢所有提出建议和帮助完善本教程的朋友们！</li>
+                </ul>
+            </section>
+            <section style="text-align:center; margin-top:32px;">
+                <p>© 2025-present 啊泠好困想睡觉（快手号：alhkxsj1）| 本站内容遵循 MIT 协议开源</p>
+            </section>
         </div>
     </main>
     <script src="app.js"></script>

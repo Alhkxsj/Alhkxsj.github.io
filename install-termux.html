@@ -8,8 +8,7 @@
     <meta name="keywords" content="Termux, 建站, 教程, 环境配置, GitHub, SSH, Android, 手机建站">
     <meta property="og:title" content="Termux 建站超详细教程 | Termux 建站全攻略">
     <meta property="og:description" content="终极 Termux 建站教程，涵盖 Termux 安装、环境配置、工具安装、SSH 配置、git 推送、常见问题与进阶技巧，助你用手机高效搭建个人网站。">
-    <meta property="og:image" content="https://alhkxsj.github.io/images/home-bg.webp">
-    <meta property="og:url" content="https://alhkxsj.github.io/install-termux.html">
+    <meta property="og:image" content="https://alhkxsj.github.github.io/install-termux.html">
     <meta property="og:type" content="article">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Termux 建站超详细教程 | Termux 建站全攻略">
@@ -44,12 +43,7 @@
                         安装后第一次打开时，可能会弹出存储权限提示，建议同意。
                     </li>
                     <li>
-                        如果看到 <code>Unable to resolve host</code> 等错误，检查网络和软件源。
-                    </li>
-                </ol>
-            </section>
-            <section>
-                <h2>二、更新软件源与环境</h2>
+                        如果看到 <code>Unable to resolve host</code> 等错误，检查网络源与环境</h2>
                 <ol>
                     <li>
                         <b>更换国内源（提升下载速度）：</b><br>
@@ -68,15 +62,7 @@
                     <li>安装 curl：<code>pkg install curl -y</code></li>
                     <li>安装 nano/vim（文本编辑器）：<code>pkg install nano -y</code></li>
                     <li>安装 openssh（用于 SSH 连接）：<code>pkg install openssh -y</code></li>
-                    <li>安装 Python（可选）：<code>pkg install python -y</code></li>
-                    <li>安装 Node.js（可选）：<code>pkg install nodejs -y</code></li>
-                </ol>
-            </section>
-            <section>
-                <h2>四、配置 SSH 密钥用于 GitHub 推送</h2>
-                <ol>
-                    <li>
-                        生成 SSH 密钥：<br>
+                    <li> 密钥：<br>
                         <code>ssh-keygen -t ed25519 -C "你的邮箱"</code><br>
                         一路回车即可。
                     </li>
@@ -153,4 +139,12 @@ git push
                     </li>
                     <li>
                         <b>Q: 终端复制粘贴怎么用？</b><br>
-                        A: 长按终端窗口可弹出复
+                        A: 长按终端窗口可弹出复制粘贴/粘贴菜单，部分机型支持三指下滑粘贴。
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
