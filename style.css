@@ -16,8 +16,7 @@ body {
     background: rgba(30, 30, 60, 0.28);
     z-index: 1;
     pointer-events: none;
-    border-radius: 0 0 48px 48px;
-    box-shadow: 0 14px 48px 0 rgba(58,122,254,0.12);
+    border-radius: 0 0 48-shadow: 0 14px 48px 0 rgba(58,122,254,0.12);
 }
 #particle-canvas {
     position: fixed;
@@ -78,16 +77,25 @@ body {
     z-index: 0;
     pointer-events: none;
 }
-.glass-container {
+/* 内容主容器玻璃拟态&白色背景增强可读性 */
+.glass-container, .tutorial-content {
+    background: rgba(255,255,255,0.96) !important; /* 清晰可见，玻璃风 */
+    color: #222 !important;
+    border-radius: 18px;
+    box-shadow: 0 4px 32px #0001;
+    padding: 32px 18px 32px 18px;
+    margin: 24px auto;
     max-width: 900px;
+    min-height: 60vh;
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(8px);
+}
+.glass-container {
     margin: 120px auto 60px auto;
-    background: rgba(255,255,255,0.18);
+    box-shadow: 0 8px 48px 0 rgba(31,38,135,0.13);
     border-radius: 36px;
     padding: 56px 40px 48px 40px;
-    box-shadow: 0 8px 48px 0 rgba(31,38,135,0.13);
-    z-index: 2;
-    position: relative;
-    backdrop-filter: blur(18px);
     animation: floaty 8s ease-in-out infinite alternate;
     opacity: 0;
     transform: translateY(32px);
@@ -101,7 +109,7 @@ body.page-loaded .glass-container {
     font-size: 2.8em;
     font-weight: bold;
     margin-bottom: 26px;
-    color: #fff;
+    color: #1a237e;
     text-align: left;
     letter-spacing: 2px;
     border-radius: 22px;
@@ -110,9 +118,7 @@ body.page-loaded .glass-container {
     box-shadow: 0 2px 36px 0 rgba(58,122,254,0.10);
     background: transparent;
     cursor: pointer;
-    user-select: none;
-    transition: color 0.33s, box-shadow 0.28s;
-}
+    user-select: none}
 #main-title.bounce {
     animation: bounce 0.4s;
 }
@@ -163,6 +169,7 @@ body.page-loaded .glass-container {
     margin: 0;
     font-size: 1.06em;
 }
+/* 滚动条美化 */
 ::-webkit-scrollbar {
     width: 12px;
     background: rgba(30,60,80,0.08);
@@ -178,10 +185,6 @@ body.page-loaded .glass-container {
 }
 /* 教程内容基础样式 */
 .tutorial-content {
-    background: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
     margin-top: 20px;
 }
 /* 代码区域美化 */
@@ -232,6 +235,19 @@ code.bash::before {
     color: #856404;
     border-radius: 6px;
     font-size: 1rem;
+}
+/* 链接高亮 */
+a {
+    color: #1976d2;
+    text-decoration: underline;
+}
+a:hover {
+    color: #1de9b6;
+    text-decoration: underline;
+}
+/* 标题色优化 */
+.glass-container h1, .tutorial-content h1, .tutorial-content h2, .tutorial-content h3, .tutorial-content h4 {
+    color: #1a237e !important;
 }
 /* 移动端优化 */
 @media (max-width: 950px) {
