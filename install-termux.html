@@ -3,155 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Termux建站环境配置详细指南</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <title>Termux环境配置指南</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="tutorial-page">
-    <canvas id="particle-canvas"></canvas>
     <div class="bg-overlay"></div>
+    <canvas id="particle-canvas"></canvas>
+
     <nav class="glass-nav">
-        <div class="nav-slider"></div>
+    <div class="nav-slider"></div>
         <a href="/" data-hover="Home">首页</a>
-        <a href="install-termux.html" data-hover="Termux" class="active">环境配置</a>
-        <a href="github-pages.html" data-hover="GitHub">项目部署</a>
-        <a href="markdown-guide.html" data-hover="Markdown">内容创作</a>
+        <a href="install-termux.html" data-hover="Termux" class="active">Termux环境配置</a>
+        <a href="github-pages.html" data-hover="GitHub">GitHub Pages部署</a>
+        <a href="markdown-guide.html" data-hover="Markdown">Markdown语法教程</a>
         <a href="about.html" data-hover="About">关于</a>
     </nav>
+
     <main class="glass-container">
-        <h1 id="main-title" class="animate__animated animate__fadeInDown">🔧 Termux建站环境配置详细指南</h1>
+        <h1 id="main-title">🔧 Termux环境配置指南</h1>
         <div class="tutorial-content">
-            <!-- 一、简介 -->
             <section>
                 <h2>一、Termux简介</h2>
-                <p>
-                    <strong>Termux</strong> 是一款强大的 Android 终端模拟器和 Linux 环境应用，它能让你在手机或平板上直接使用 Linux 命令行工具。<br>
-                    <br>
-                    <strong>主要特点：</strong>
-                    <ul>
-                        <li>无需 root 权限，即可体验完整 Linux 终端环境</li>
-                        <li>支持包管理，随时安装 <code>git</code>、<code>vim</code>、<code>python</code> 等开发工具</li>
-                        <li>可配合 GitHub 等平台，实现代码托管、静态网站部署</li>
-                        <li>可通过 SSH、SFTP 等方式远程管理服务器</li>
-                        <li>丰富的第三方插件（API、Widget、Styling等），扩展性极强</li>
-                    </ul>
-                    <strong>应用场景：</strong>
-                    <ul>
-                        <li>随时随地在手机上编辑、管理和同步网站源码</li>
-                        <li>学习 Linux 基础命令与开发流程</li>
-                        <li>作为轻量服务器终端，远程管理 VPS、云服务器等</li>
-                        <li>辅助搭建个人博客、静态网站等</li>
-                    </ul>
-                </p>
+                <p>Termux 是一款强大的安卓终端模拟器和 Linux 环境应用。它让你在 Android 手机上直接运行 Linux 命令、安装各种开发工具。适合学习 Linux、开发、日常操作等多种场景。</p>
             </section>
-            <!-- 二、下载安装与初始配置 -->
             <section>
-                <h2>二、下载安装与初始配置</h2>
+                <h2>二、安装步骤</h2>
                 <ol>
                     <li>
-                        <strong>下载安装 Termux：</strong>
-                        <ul>
-                            <li>推荐从 <a href="https://f-droid.org/packages/com.termux/" target="_blank">F-Droid</a> 或 <a href="https://github.com/termux/termux-app/releases" target="_blank">GitHub发布页</a> 获取最新版 APK。</li>
-                            <li><span style="color: red;">注意：</span>不要在 Google Play 或第三方应用市场下载，避免版本过旧或被植入广告。</li>
-                        </ul>
+                        前往 <a href="https://f-droid.org/packages/com.termux/" target="_blank">F-Droid</a> 或 <a href="https://github.com/termux/termux-app/releases" target="_blank">GitHub</a> 下载 <strong>Termux</strong> 最新安装包并安装。
                     </li>
                     <li>
-                        <strong>安装并首次启动：</strong>
-                        <ul>
-                            <li>安装 APK 后，点击图标打开 Termux。</li>
-                            <li>首次启动会自动初始化基础环境，无需额外操作。</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <strong>授予存储权限：</strong>
-                        <ul>
-                            <li>在 Termux 中输入以下命令（首次需要）：</li>
-                        </ul>
-                        <pre><code>termux-setup-storage</code></pre>
-                        <ul>
-                            <li>系统会弹出权限申请对话框，请选择“允许”。</li>
-                            <li>完成后，Termux 主目录会出现 <code>storage</code> 文件夹，方便访问/管理手机存储中的文件。</li>
-                        </ul>
+                        安装完成后，首次打开会自动初始化环境。
                     </li>
                 </ol>
             </section>
-            <!-- 三、更新与安装基础开发工具 -->
             <section>
-                <h2>三、更新系统与安装基础开发工具</h2>
+                <h2>三、常用命令</h2>
                 <ol>
                     <li>
-                        <strong>更新包管理器与系统：</strong>
-                        <ul>
-                            <li>输入以下命令，确保软件源和系统为最新：</li>
-                        </ul>
-                        <pre><code>pkg update && pkg upgrade -y</code></pre>
-                        <ul>
-                            <li>如遇网络慢，可参考后文更换国内镜像源。</li>
-                        </ul>
+                        <strong>更新包：</strong>
+                        <pre><code>pkg update && pkg upgrade</code></pre>
                     </li>
                     <li>
-                        <strong>安装常用开发工具：</strong>
-                        <ul>
-                            <li>一条命令安装建站必需工具：</li>
-                        </ul>
-                        <pre><code>pkg install git vim nano python curl wget openssh -y</code></pre>
-                        <ul>
-                            <li><code>git</code>：同步代码，连接 GitHub</li>
-                            <li><code>vim/nano</code>：编辑站点源码和配置文件，新手推荐 <code>nano</code></li>
-                            <li><code>python</code>：部分静态网站生成器或脚本必需</li>
-                            <li><code>curl/wget</code>：下载工具</li>
-                            <li><code>openssh</code>：生成 SSH 密钥，远程管理服务器</li>
-                        </ul>
+                        <strong>安装 Git/Vim/Python：</strong>
+                        <pre><code>pkg install git vim python nano curl wget</code></pre>
                     </li>
                     <li>
-                        <strong>（可选）安装中文支持，防止乱码：</strong>
-                        <pre><code>pkg install language-pack-zh-cn
+                        <strong>更换语言：</strong>
+                        <pre><code>pkg install zh-CN
 export LANG=zh_CN.UTF-8</code></pre>
-                        <ul>
-                            <li>如需永久生效，可将 <code>export LANG=zh_CN.UTF-8</code> 写入 <code>~/.bashrc</code> 或 <code>~/.profile</code>。</li>
-                        </ul>
                     </li>
                 </ol>
             </section>
-            <!-- 四、配置 Git 与 SSH 密钥 -->
             <section>
-                <h2>四、配置 Git 与 SSH 密钥（推送代码到 GitHub 必备）</h2>
+                <h2>四、SSH 与密钥生成</h2>
                 <ol>
                     <li>
-                        <strong>配置 Git 用户信息：</strong>
-                        <pre><code>
-git config --global user.name "你的昵称"
-git config --global user.email "你的邮箱@example.com"
-                        </code></pre>
-                        <ul>
-                            <li>用于标记你的提交身份。</li>
-                        </ul>
+                        <strong>生成密钥：</strong>
+                        <pre><code>ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</code></pre>
                     </li>
                     <li>
-                        <strong>生成 SSH 密钥对：</strong>
-                        <pre><code>ssh-keygen -t rsa -b 4096 -C "你的邮箱@example.com"</code></pre>
-                        <ul>
-                            <li>一路按回车即可，密钥默认保存于 <code>~/.ssh/</code> 目录。</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <strong>查看并复制公钥内容：</strong>
+                        <strong>查看公钥内容：</strong>
                         <pre><code>cat ~/.ssh/id_rsa.pub</code></pre>
-                        <ul>
-                            <li>复制输出内容</li>
-                            <li>登录 GitHub，依次点击 <strong>Settings &gt; SSH and GPG keys &gt; New SSH key</strong>，粘贴公钥，保存。</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <strong>测试 SSH 连接：</strong>
-                        <pre><code>ssh -T git@github.com</code></pre>
-                        <ul>
-                            <li>首次连接会询问是否信任，输入 <code>yes</code> 并回车。</li>
-                            <li>若显示 “Hi 用户名! You've successfully authenticated...” 即配置成功。</li>
-                        </ul>
+                        添加到 GitHub <strong>Settings - SSH and GPG keys</strong>。
                     </li>
                 </ol>
             </section>
-            <!-- 五、基础文件操作与常用命令 -->
             <section>
-                
+                <h2>五、常用目录与命令</h2>
+                <ul>
+                    <li><code>ls</code> 查看文件列表</li>
+                    <li><code>cd 目录名</code> 进入目录</li>
+                    <li><code>pwd</code> 查看当前路径</li>
+                    <li><code>mv 文件1 文件2</code> 重命名或移动</li>
+                    <li><code>rm 文件名</code> 删除文件</li>
+                    <li><code>nano 文件名</code> 简单编辑文件</li>
+                    <li><code>rm -rf 目录名</code> 强制删除目录</li>
+                    <li><code>naon 文件名</code>（拼写应为 nano）</li>
+                </ul>
+            </section>
+            <section>
+                <h2>六、常见问答</h2>
+                <ul>
+                    <li><strong>Q: Termux 如何更新？</strong><br>
+                        A: 使用 <code>pkg update</code> 命令即可。如果提示网络异常，可尝试切换镜像源。
+                    </li>
+                    <li><strong>Q: 软件装不上/权限问题？</strong><br>
+                        A: 部分功能需授予存储权限或开启 root。可在系统设置里操作。
+                    </li>
+                    <li><strong>Q: 配置文件在哪？</strong><br>
+                        A: 一般在 <code>~/.termux</code> 目录下。
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>七、相关链接</h2>
+                <ul>
+                    <li><a href="https://github.com/termux/termux-app" target="_blank">Termux 官方GitHub</a></li>
+                    <li><a href="https://wiki.termux.com/" target="_blank">Termux Wiki文档</a></li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
