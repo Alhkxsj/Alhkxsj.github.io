@@ -11,7 +11,6 @@
     <meta property="og:image" content="https://alhkxsj.github.io/images/home-bg.webp">
     <meta property="og:url" content="https://alhkxsj.github.io/about.html">
     <meta property="og:type" content="profile">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="tutorial-style.css">
     <style>
@@ -19,28 +18,23 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 18px;
+        margin-bottom: 16px;
       }
       .avatar-img {
-        width: 98px;
-        height: 98px;
+        width: 92px;
+        height: 92px;
         border-radius: 50%;
-        border: 4px solid #e3f6fd;
-        box-shadow: 0 4px 24px #6dd5ed55;
+        border: 3px solid #e3f6fd;
+        box-shadow: 0 2px 12px #6dd5ed44;
         object-fit: cover;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
         background: #faf9fd;
-        transition: box-shadow 0.3s, transform 0.25s cubic-bezier(.55,1.5,.45,1);
-      }
-      .avatar-img:hover {
-        box-shadow: 0 8px 32px #2193b0a0;
-        transform: scale(1.08) rotate(-2deg);
       }
       .author-nickname {
-        font-size: 1.16em;
+        font-size: 1.12em;
         font-weight: bold;
-        margin-bottom: 5px;
         color: #2193b0;
+        margin-bottom: 3px;
         letter-spacing: 1px;
       }
       .kuaishou-id {
@@ -48,15 +42,15 @@
         background: #ffe066;
         color: #c96f00;
         font-weight: bold;
-        border-radius: 12px;
-        padding: 2px 12px;
+        border-radius: 10px;
+        padding: 1px 10px;
         margin-left: 8px;
-        font-size: 1em;
+        font-size: 0.98em;
         letter-spacing: .5px;
-        box-shadow: 0 2px 8px #ffe06644;
+        box-shadow: 0 1px 6px #ffe06633;
       }
       @media (max-width: 600px) {
-        .avatar-img { width: 64px; height: 64px; }
+        .avatar-img { width: 54px; height: 54px; }
         .author-nickname { font-size: 1em; }
         .kuaishou-id { font-size: .95em; }
       }
@@ -73,7 +67,7 @@
         <a href="markdown-guide.html" data-hover="Markdown">内容创作</a>
         <a href="about.html" data-hover="About" class="active">关于</a>
     </nav>
-    <main class="glass-container">
+    <div class="container">
         <h1 id="main-title" class="animate__animated animate__fadeInDown">关于本站</h1>
         <div class="tutorial-content">
             <div class="avatar-wrap">
@@ -125,7 +119,7 @@
                 <p>© 2025-present 啊沐好困想睡觉（快手号：alhkxsj1）| 本站内容遵循 MIT 协议开源</p>
             </section>
         </div>
-    </main>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
