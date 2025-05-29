@@ -10,13 +10,40 @@
     <meta property="og:description" content="终极 Termux 建站教程，涵盖 Termux 安装、环境配置、工具安装、SSH 配置、git 推送、常见问题与进阶技巧，助你用手机高效建站。">
     <meta property="og:image" content="https://alhkxsj.github.io/images/home-bg.webp">
     <meta property="og:type" content="article">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Termux 建站超详细教程 | Termux 建站全攻略">
-    <meta name="twitter:description" content="终极 Termux 建站教程，涵盖 Termux 安装、环境配置、工具安装、SSH 配置、git 推送、常见问题与进阶技巧，助你用手机高效建站。">
-    <meta name="twitter:image" content="https://alhkxsj.github.io/images/home-bg.webp">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="tutorial-style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>">
+    <style>
+      /* 额外加强环境配置教程的列表、缩进和代码块排版 */
+      .tutorial-content ol, .tutorial-content ul {
+        margin-left: 1.2em;
+        padding-left: 0.8em;
+      }
+      .tutorial-content li {
+        margin-bottom: 0.45em;
+      }
+      .tutorial-content section > ol > li {
+        margin-bottom: 1.1em;
+      }
+      .tutorial-content code {
+        word-break: break-all;
+      }
+      .tutorial-content pre {
+        margin-left: 0;
+        padding-left: 10px;
+        font-size: 1.02em;
+      }
+      @media (max-width: 600px) {
+        .tutorial-content pre {
+          font-size: 0.97em;
+          padding-left: 4px;
+        }
+        .tutorial-content ol, .tutorial-content ul {
+          margin-left: 0.7em;
+          padding-left: 0.5em;
+        }
+      }
+    </style>
 </head>
 <body>
     <canvas id="particle-canvas"></canvas>
@@ -37,10 +64,11 @@
                 <ol>
                     <li>
                         <b>不要直接在酷安/应用商店下载安装！</b><br>
-                        推荐到 <a href="https://f-droid.org/packages/com.termux/" target="_blank" rel="noopener noreferrer">F-Droid</a> 或 <a href="https://github.com/termux/termux-app/releases" target="_blank" rel="noopener noreferrer">GitHub Releases</a> 获取最新版。
+                        推荐到 <a href="https://f-droid.org/packages/com.termux/" target="_blank" rel="noopener noreferrer">F-Droid</a>
+                        或 <a href="https://github.com/termux/termux-app/releases" target="_blank" rel="noopener noreferrer">GitHub Releases</a> 获取最新版。
                     </li>
                     <li>
-                        安装后第一次打开时，可能会弹出存储权限提示，建议同意。
+                        安装后第一次打开时，建议同意存储权限。
                     </li>
                     <li>
                         如果看到 <code>Unable to resolve host</code> 等错误，检查网络源与环境。
@@ -52,11 +80,11 @@
                 <ol>
                     <li>
                         <b>更换国内源（提升下载速度）：</b><br>
-                        输入 <code>termux-change-repo</code>，选择国内的源（如清华、中科大等），按空格选中后回车，再按回车确认。
+                        输入 <code>termux-change-repo</code>，选择国内的源（如清华、中科大），按空格选中、回车确认。
                     </li>
                     <li>
                         <b>更新包管理器和升级环境：</b><br>
-                        <code>pkg update && pkg upgrade -y</code>
+                        <pre><code>pkg update && pkg upgrade -y</code></pre>
                     </li>
                 </ol>
             </section>
@@ -65,55 +93,62 @@
                 <ol>
                     <li>安装 git：<code>pkg install git -y</code></li>
                     <li>安装 curl：<code>pkg install curl -y</code></li>
-                    <li>安装 nano/vim（文本编辑器）：<code>pkg install nano -y</code></li>
-                    <li>安装 openssh（用于 SSH 连接）：<code>pkg install openssh -y</code></li>
-                    <li>生成密钥：<br>
-                        <code>ssh-keygen -t ed25519 -C "你的邮箱"</code><br>
-                        一路回车即可。
+                    <li>安装 nano/vim（编辑器）：<code>pkg install nano -y</code></li>
+                    <li>安装 openssh（SSH 工具）：<code>pkg install openssh -y</code></li>
+                    <li>
+                        生成密钥（一路回车即可）：<br>
+                        <pre><code>ssh-keygen -t ed25519 -C "你的邮箱"</code></pre>
                     </li>
-                    <li>查看公钥内容：<br>
-                        <code>cat ~/.ssh/id_ed25519.pub</code><br>
-                        长按终端复制输出的全部内容。
+                    <li>
+                        查看公钥内容，长按终端复制输出的全部内容：<br>
+                        <pre><code>cat ~/.ssh/id_ed25519.pub</code></pre>
                     </li>
-                    <li>添加公钥到 GitHub：<br>
-                        打开 <a href="https://github.com/settings/keys" target="_blank" rel="noopener noreferrer">GitHub SSH Keys</a> 页面，点击 <b>New SSH key</b>，把刚才复制的内容粘贴进去保存。
+                    <li>
+                        添加公钥到 GitHub：<br>
+                        打开 <a href="https://github.com/settings/keys" target="_blank">GitHub SSH Keys</a>，点击 <b>New SSH key</b>，粘贴内容保存。
                     </li>
-                    <li>测试是否成功：<br>
-                        <code>ssh -T git@github.com</code><br>
-                        如果显示 <b>Hi 用户名! You've successfully authenticated</b> 就说明配置成功。
+                    <li>
+                        测试 SSH 连接：<br>
+                        <pre><code>ssh -T git@github.com</code></pre>
+                        显示 <b>Hi 用户名! You've successfully authenticated</b> 即成功。
                     </li>
                 </ol>
             </section>
             <section>
                 <h2>四、克隆 GitHub 仓库到本地</h2>
                 <ol>
-                    <li>找到你要操作的 GitHub 仓库，点击 <b>Code</b>，选择 <b>SSH</b>，复制仓库地址（如 <code>git@github.com:Alhkxsj/Alhkxsj.github.io.git</code>）。</li>
-                    <li>在 Termux 运行：<br>
-                        <code>git clone 仓库地址</code><br>
-                        例如：<br>
-                        <code>git clone git@github.com:Alhkxsj/Alhkxsj.github.io.git</code>
+                    <li>
+                        找到你的 GitHub 仓库，复制 SSH 地址（如 <code>git@github.com:Alhkxsj/Alhkxsj.github.io.git</code>）。
                     </li>
-                    <li>进入仓库目录：<br>
-                        <code>cd Alhkxsj.github.io</code>
+                    <li>
+                        在 Termux 运行：<br>
+                        <pre><code>git clone 仓库地址</code></pre>
+                        例如：<code>git clone git@github.com:Alhkxsj/Alhkxsj.github.io.git</code>
+                    </li>
+                    <li>
+                        进入仓库目录：<br>
+                        <pre><code>cd Alhkxsj.github.io</code></pre>
                     </li>
                 </ol>
             </section>
             <section>
                 <h2>五、编辑和上传你的网站</h2>
                 <ol>
-                    <li>用 nano 编辑网页文件：<br>
-                        <code>nano install-termux.html</code><br>
-                        编辑后，<b>Ctrl+O</b> 保存，<b>Ctrl+X</b> 退出。
+                    <li>
+                        编辑网页文件（例如）：<br>
+                        <pre><code>nano index.html</code></pre>
+                        编辑后 <b>Ctrl+O</b> 保存，<b>Ctrl+X</b> 退出。
                     </li>
-                    <li>查看修改状态：<br>
-                        <code>git status</code>
+                    <li>
+                        查看修改状态：<br>
+                        <pre><code>git status</code></pre>
                     </li>
-                    <li>提交修改并推送到 GitHub：<br>
-                        <code>
-git add .
+                    <li>
+                        提交并推送到 GitHub：<br>
+                        <pre><code>git add .
 git commit -m "更新说明"
 git push
-                        </code>
+                        </code></pre>
                     </li>
                 </ol>
             </section>
@@ -126,20 +161,13 @@ git push
                     </li>
                     <li>
                         <b>Q: git push 时提示权限错误</b><br>
-                        A: 检查 SSH 密钥是否添加到 GitHub，并且用的是 SSH 地址而不是 HTTPS。
+                        A: 检查 SSH 密钥是否添加到 GitHub，并用的是 SSH 地址。
                     </li>
                     <li>
                         <b>Q: 编辑文件时乱码</b><br>
-                        A: 建议用 nano，保存为 UTF-8 编码。
+                        A: 建议用 nano，保存为 UTF-8。
                     </li>
                     <li>
                         <b>Q: 终端复制粘贴怎么用？</b><br>
-                        A: 长按终端窗口可弹出复制粘贴/粘贴菜单，部分机型支持三指下滑粘贴。
-                    </li>
-                </ul>
-            </section>
-        </div>
-    </div>
-    <script src="app.js"></script>
-</body>
-</html>
+                        A: 长按终端窗口弹出菜单，部分机型支持三指下滑粘贴。
+           

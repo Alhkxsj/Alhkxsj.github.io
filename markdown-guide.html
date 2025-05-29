@@ -10,6 +10,36 @@
   <meta property="og:image" content="https://alhkxsj.github.io/images/home-bg.webp">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="tutorial-style.css">
+  <style>
+    .tutorial-content ol, .tutorial-content ul {
+      margin-left: 1.2em;
+      padding-left: 0.8em;
+    }
+    .tutorial-content li {
+      margin-bottom: 0.45em;
+    }
+    .tutorial-content section > ol > li {
+      margin-bottom: 1.1em;
+    }
+    .tutorial-content code {
+      word-break: break-all;
+    }
+    .tutorial-content pre {
+      margin-left: 0;
+      padding-left: 10px;
+      font-size: 1.02em;
+    }
+    @media (max-width: 600px) {
+      .tutorial-content pre {
+        font-size: 0.97em;
+        padding-left: 4px;
+      }
+      .tutorial-content ol, .tutorial-content ul {
+        margin-left: 0.7em;
+        padding-left: 0.5em;
+      }
+    }
+  </style>
 </head>
 <body class="tutorial-page">
   <canvas id="particle-canvas"></canvas>

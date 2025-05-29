@@ -10,6 +10,36 @@
   <meta property="og:image" content="https://alhkxsj.github.io/images/home-bg.webp">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="tutorial-style.css">
+  <style>
+    .tutorial-content ol, .tutorial-content ul {
+      margin-left: 1.2em;
+      padding-left: 0.8em;
+    }
+    .tutorial-content li {
+      margin-bottom: 0.45em;
+    }
+    .tutorial-content section > ol > li {
+      margin-bottom: 1.1em;
+    }
+    .tutorial-content code {
+      word-break: break-all;
+    }
+    .tutorial-content pre {
+      margin-left: 0;
+      padding-left: 10px;
+      font-size: 1.02em;
+    }
+    @media (max-width: 600px) {
+      .tutorial-content pre {
+        font-size: 0.97em;
+        padding-left: 4px;
+      }
+      .tutorial-content ol, .tutorial-content ul {
+        margin-left: 0.7em;
+        padding-left: 0.5em;
+      }
+    }
+  </style>
 </head>
 <body class="tutorial-page">
   <canvas id="particle-canvas"></canvas>
@@ -77,7 +107,7 @@ git push</code></pre>
         <h2>五、自定义域名（可选）</h2>
         <ol>
           <li>
-            在仓库根目录新建名为 <code>CNAME</code> 的文本文件，文件内容为你的自定义域名（如 <code>www.example.com</code>）。
+            在仓库根目录新建名为 <code>CNAME</code> 的文本文件，内容为你的自定义域名（如 <code>www.example.com</code>）。
           </li>
           <li>
             在域名服务商处设置 CNAME 解析，将 <code>www.example.com</code> 指向 <code>你的用户名.github.io</code>。

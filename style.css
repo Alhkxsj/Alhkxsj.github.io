@@ -78,7 +78,7 @@ body {
 #main-title {
     font-size: 2.2em;
     font-weight: bold;
-    margin-bottom: 32px;
+    margin-bottom: 38px;
     color: #fff;
     text-align: left;
     letter-spacing: 2px;
@@ -90,7 +90,7 @@ body {
     cursor: pointer;
     user-select: none;
     transition: color 0.18s;
-    margin-top: 100px; /* 使标题和导航分离 */
+    margin-top: 110px; /* 加大与顶部导航距离，防止重叠 */
     position: relative;
     z-index: 3;
 }
@@ -107,7 +107,7 @@ body {
     from { transform: translateY(0);}
     to   { transform: translateY(-7px);}
 }
-/* 内容主容器 只保留自适应宽度和边距，无背景/无阴影 */
+/* 主内容容器，顶部留白加大，左右自适应 */
 .container, .tutorial-content {
     width: 100%;
     max-width: 900px;
