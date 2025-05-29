@@ -39,6 +39,15 @@
       border-radius: 8px;
       box-shadow: 0 1px 8px #2193b011;
     }
+    /* ----------- 标题间距优化 ----------- */
+    .tutorial-content section h2 {
+      margin-top: 1.7em;
+      margin-bottom: 0.6em;
+      line-height: 1.25;
+    }
+    .tutorial-content section:first-child h2 {
+      margin-top: 0.5em;
+    }
     @media (max-width: 600px) {
       .tutorial-content pre {
         font-size: 0.97em;
@@ -47,6 +56,13 @@
       .tutorial-content ol, .tutorial-content ul {
         margin-left: 0.7em;
         padding-left: 0.5em;
+      }
+      .tutorial-content section h2 {
+        margin-top: 1.1em;
+        margin-bottom: 0.45em;
+      }
+      .tutorial-content section:first-child h2 {
+        margin-top: 0.2em;
       }
     }
   </style>
