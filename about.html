@@ -1,136 +1,96 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>关于本站 | Termux 建站全攻略</title>
-    <meta name="description" content="Termux 建站全攻略 - 关于本站、作者简介、联系方式、项目说明与致谢。">
-    <meta name="keywords" content="关于, Termux 建站全攻略, 作者, 联系方式, 开源, 教程">
-    <meta property="og:title" content="关于本站 | Termux 建站全攻略">
-    <meta property="og:description" content="Termux 建站全攻略 - 关于本站、作者简介、联系方式、项目说明与致谢。">
-    <meta property="og:image" content="https://alhkxsj.github.io/images/home-bg.webp">
-    <meta property="og:url" content="https://alhkxsj.github.io/about.html">
-    <meta property="og:type" content="profile">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="tutorial-style.css">
-    <style>
-      .avatar-wrap {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 16px;
-      }
-      .avatar-img {
-        width: 92px;
-        height: 92px;
-        border-radius: 50%;
-        border: 3px solid #e3f6fd;
-        box-shadow: 0 2px 12px #6dd5ed44;
-        object-fit: cover;
-        margin-bottom: 8px;
-        background: #faf9fd;
-      }
-      .author-nickname {
-        font-size: 1.12em;
-        font-weight: bold;
-        color: #2193b0;
-        margin-bottom: 3px;
-        letter-spacing: 1px;
-      }
-      .kuaishou-id {
-        display: inline-block;
-        background: #ffe066;
-        color: #c96f00;
-        font-weight: bold;
-        border-radius: 10px;
-        padding: 1px 10px;
-        margin-left: 8px;
+  <meta charset="UTF-8">
+  <title>关于本站 | Termux 建站全攻略</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="关于『Termux 建站全攻略』的作者、项目背景、反馈方式和开源精神。">
+  <meta name="keywords" content="关于, Termux, 建站, 作者, 反馈, 开源, GitHub Pages">
+  <meta property="og:title" content="关于本站 | Termux 建站全攻略">
+  <meta property="og:description" content="关于『Termux 建站全攻略』的作者、项目背景、反馈方式和开源精神。">
+  <meta property="og:image" content="https://alhkxsj.github.io/images/home-bg.webp">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="tutorial-style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💡</text></svg>">
+  <style>
+    .about-section {
+      background: rgba(255,255,255,0.16);
+      border-radius: 18px;
+      padding: 32px 18px 18px 18px;
+      margin-top: 14px;
+      box-shadow: 0 3px 16px #2193b011;
+      line-height: 1.85;
+      font-size: 1.08em;
+    }
+    .about-section h2 {
+      margin-top: 0;
+      font-size: 1.19em;
+      color: #2193b0;
+      letter-spacing: 1px;
+      font-weight: bold;
+    }
+    .about-section a {
+      color: #134e6f;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+    .about-section ul {
+      margin-left: 1.2em;
+      padding-left: 0.8em;
+    }
+    @media (max-width: 600px) {
+      .about-section {
+        padding: 18px 6px 8px 6px;
         font-size: 0.98em;
-        letter-spacing: .5px;
-        box-shadow: 0 1px 6px #ffe06633;
       }
-      .tutorial-content ol, .tutorial-content ul {
-        margin-left: 1.2em;
-        padding-left: 0.8em;
+      .about-section ul {
+        margin-left: 0.5em;
+        padding-left: 0.4em;
       }
-      .tutorial-content li {
-        margin-bottom: 0.45em;
-      }
-      @media (max-width: 600px) {
-        .avatar-img { width: 54px; height: 54px; }
-        .author-nickname { font-size: 1em; }
-        .kuaishou-id { font-size: .95em; }
-        .tutorial-content ol, .tutorial-content ul {
-          margin-left: 0.7em;
-          padding-left: 0.5em;
-        }
-      }
-    </style>
+    }
+  </style>
 </head>
-<body class="tutorial-page">
-    <canvas id="particle-canvas"></canvas>
-    <div class="bg-overlay"></div>
-    <nav class="glass-nav">
-        <div class="nav-slider"></div>
-        <a href="index.html" data-hover="Home">首页</a>
-        <a href="install-termux.html" data-hover="Termux">环境配置</a>
-        <a href="github-pages.html" data-hover="GitHub">项目部署</a>
-        <a href="markdown-guide.html" data-hover="Markdown">内容创作</a>
-        <a href="about.html" data-hover="About" class="active">关于</a>
-    </nav>
-    <div class="container">
-        <h1 id="main-title" class="animate__animated animate__fadeInDown">关于本站</h1>
-        <div class="tutorial-content">
-            <div class="avatar-wrap">
-                <img class="avatar-img" src="images/avatar.png" alt="作者头像">
-                <div class="author-nickname">
-                  啊沐好困想睡觉
-                  <span class="kuaishou-id">快手号：alhkxsj1</span>
-                </div>
-            </div>
-            <section>
-                <h2>项目简介</h2>
-                <p>
-                    <strong>Termux 建站全攻略</strong> 是一个专为零基础用户打造的免费建站教程，帮助大家通过手机实现从环境配置到网站部署、内容创作全流程，轻松拥有属于自己的静态网站。
-                </p>
-            </section>
-            <section>
-                <h2>作者简介</h2>
-                <ul>
-                    <li>作者昵称：<b>Alhkxsj</b>（快手号：<b>alhkxsj1</b>）</li>
-                    <li>快手名称：<b>啊沐好困想睡觉</b></li>
-                    <li>爱好开源与分享，专注于移动端高效建站与自动化工具。</li>
-                </ul>
-            </section>
-            <section>
-                <h2>联系方式</h2>
-                <ul>
-                    <li>GitHub：<a href="https://github.com/Alhkxsj" target="_blank">Alhkxsj</a></li>
-                    <li>快手：<b>啊沐好困想睡觉</b>（快手号：<b>alhkxsj1</b>）</li>
-                    <li>B站/视频平台：可搜索“啊沐好困想睡觉”或“Termux建站全攻略”</li>
-                    <li>如有疑问、建议或合作意向，欢迎通过 GitHub Issues 留言</li>
-                </ul>
-            </section>
-            <section>
-                <h2>项目说明</h2>
-                <ul>
-                    <li>教程内容涵盖 Termux 配置、GitHub Pages 部署、Markdown 写作等，适合手机用户和新手。</li>
-                    <li>页面采用玻璃拟态+粒子动画风格，自适应移动端。</li>
-                    <li>本项目开源，MIT 协议，欢迎二次开发和投稿。</li>
-                </ul>
-            </section>
-            <section>
-                <h2>致谢</h2>
-                <ul>
-                    <li>感谢 Termux、GitHub Pages 等开源生态。</li>
-                    <li>感谢所有提出建议和帮助完善本教程的朋友们！</li>
-                </ul>
-            </section>
-            <section style="text-align:center; margin-top:32px;">
-                <p>© 2025-present 啊沐好困想睡觉（快手号：alhkxsj1）| 本站内容遵循 MIT 协议开源</p>
-            </section>
-        </div>
+<body>
+  <canvas id="particle-canvas"></canvas>
+  <div class="bg-overlay"></div>
+  <nav class="glass-nav">
+    <div class="nav-slider"></div>
+    <a href="index.html" data-hover="Home">首页</a>
+    <a href="install-termux.html" data-hover="Termux">环境配置</a>
+    <a href="github-pages.html" data-hover="GitHub">项目部署</a>
+    <a href="markdown-guide.html" data-hover="Markdown">内容创作</a>
+    <a href="about.html" data-hover="About" class="active">关于</a>
+  </nav>
+  <div class="container">
+    <h1 id="main-title" class="animate__animated animate__fadeInDown">💡 关于本站</h1>
+    <div class="about-section">
+      <h2>项目简介</h2>
+      <p>
+        <b>『Termux 建站全攻略』</b> 致力于帮零基础用户通过手机轻松拥有个人网站。本站内容覆盖环境配置、建站部署、内容创作、进阶玩法等每一步，全部开源、持续更新。
+      </p>
+      <h2>作者 & 联系方式</h2>
+      <ul>
+        <li>作者：<a href="https://github.com/Alhkxsj" target="_blank">Alhkxsj</a></li>
+        <li>邮箱：<a href="mailto:alhkxsj@outlook.com">alhkxsj@outlook.com</a></li>
+        <li>GitHub 项目：<a href="https://github.com/Alhkxsj/Alhkxsj.github.io" target="_blank">Alhkxsj.github.io</a></li>
+      </ul>
+      <h2>反馈与贡献</h2>
+      <ul>
+        <li>欢迎在 <a href="https://github.com/Alhkxsj/Alhkxsj.github.io/issues" target="_blank">Issues 区</a> 提出建议、反馈 bug 或提交 PR。</li>
+        <li>如有内容错误、需求补充、疑难求助，欢迎邮件或私信交流。</li>
+      </ul>
+      <h2>开源与致谢</h2>
+      <ul>
+        <li>本站内容和源码遵循 <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a> 许可协议开放。</li>
+        <li>感谢所有开源项目及互联网前辈的无私分享。</li>
+      </ul>
+      <h2>致访问者</h2>
+      <p>
+        建站不难，重要的是勇敢迈出第一步。希望这里能助你少走弯路，快速拥有属于自己的网络空间！
+      </p>
     </div>
-    <script src="app.js"></script>
+  </div>
+  <script src="app.js"></script>
 </body>
 </html>

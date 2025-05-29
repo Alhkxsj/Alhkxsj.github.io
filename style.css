@@ -76,12 +76,13 @@ body {
     transition: left 0.37s cubic-bezier(.55,1.5,.45,1), width 0.34s cubic-bezier(.55,1.5,.45,1);
 }
 
-/* 主内容容器：顶部空间足够，防止导航遮挡所有内容 */
 .container, .tutorial-content {
     width: 100%;
     max-width: 900px;
     margin: 0 auto 48px auto;
-    padding: 110px 8vw 0 8vw; /* 顶部留大间距，防止导航遮挡 */
+    padding-top: 0; /* 让js动态设置 */
+    padding-left: 8vw;
+    padding-right: 8vw;
     box-sizing: border-box;
     background: none !important;
     box-shadow: none !important;
@@ -89,7 +90,6 @@ body {
     min-height: 400px;
 }
 
-/* 主标题优化：间距由容器控制，标题自身不再加 margin-top */
 #main-title {
     font-size: 2.2em;
     font-weight: bold;
@@ -127,7 +127,6 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 28px;
 }
-/* 首页卡片优化：字体更深更清晰 */
 .feature-card {
     background: rgba(255,255,255,0.15);
     border-radius: 22px;
@@ -192,9 +191,9 @@ body {
     .content-grid { grid-template-columns: 1fr; gap: 20px;}
     .glass-nav { gap: 10px; padding: 7px 5px;}
     #main-title { font-size: 1.4em; padding: 10px 6vw 10px 0;}
-    .container, .tutorial-content { padding: 68px 2vw 0 2vw;}
+    .container, .tutorial-content { padding-left: 2vw; padding-right: 2vw;}
 }
 @media (max-width: 600px) {
     #main-title { font-size: 1.1em; padding: 8px 2vw 8px 0;}
-    .container, .tutorial-content { padding: 68px 1vw 0 1vw;}
+    .container, .tutorial-content { padding-left: 1vw; padding-right: 1vw;}
 }
