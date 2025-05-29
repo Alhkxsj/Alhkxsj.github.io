@@ -1,150 +1,176 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <title>关于本站 | Termux 建站全攻略</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="本站致力于提供最通俗易懂、极简实用的 Termux+GitHub Pages 手机建站教程。">
-  <meta name="keywords" content="Termux, GitHub Pages, 建站, 教程, 关于, 手机建站">
-  <meta property="og:title" content="关于本站 | Termux 建站全攻略">
-  <meta property="og:description" content="本站致力于提供最通俗易懂、极简实用的 Termux+GitHub Pages 手机建站教程。">
-  <meta property="og:image" content="https://alhkxsj.github.io/images/home-bg.webp">
-  <meta property="og:type" content="article">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="tutorial-style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>ℹ️</text></svg>">
-  <style>
-    .about-content {
-      max-width: 700px;
-      margin: 2.2em auto 2em auto;
-      background: rgba(255,255,255,0.88);
-      border-radius: 12px;
-      padding: 2.2em 1.3em 2em 1.3em;
-      box-shadow: 0 2px 15px #21b6a811;
-      font-size: 1.11em;
-      line-height: 1.82;
-    }
-    .about-content h2 {
-      margin-top: 1.6em;
-      margin-bottom: 0.6em;
-      font-size: 1.33em;
-      font-weight: 600;
-      line-height: 1.22;
-    }
-    .about-content h2:first-child {
-      margin-top: 0.5em;
-    }
-    .author-profile {
-      display: flex;
-      align-items: center;
-      gap: 1.1em;
-      margin-bottom: 1.5em;
-    }
-    .author-profile img {
-      width: 74px;
-      height: 74px;
-      border-radius: 50%;
-      box-shadow: 0 2px 10px #0001;
-      object-fit: cover;
-    }
-    .author-profile .nickname {
-      font-size: 1.18em;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-    }
-    .author-profile .ks-id {
-      font-size: 0.99em;
-      color: #888;
-    }
-    .author-profile .ks-id span {
-      color: #21b6a8;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-    }
-    @media (max-width: 600px) {
-      .about-content {
-        padding: 1.1em 0.5em 1.2em 0.5em;
-        font-size: 1em;
-      }
-      .about-content h2 {
-        margin-top: 1.1em;
-        margin-bottom: 0.45em;
-        font-size: 1.09em;
-      }
-      .about-content h2:first-child {
-        margin-top: 0.22em;
-      }
-      .author-profile img {
-        width: 54px;
-        height: 54px;
-      }
-      .author-profile {
-        gap: 0.7em;
-        margin-bottom: 1em;
-      }
-      .author-profile .nickname { font-size: 1em; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于本站</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: 'Segoe UI', 'Microsoft Yahei', sans-serif;
+            background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+            overflow-x: hidden;
+        }
+        #particle-canvas {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .bg-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(255,255,255,0.3);
+            z-index: 2;
+            backdrop-filter: blur(2px);
+        }
+        .glass-nav {
+            position: fixed;
+            top: 30px; left: 50%; transform: translateX(-50%);
+            display: flex;
+            gap: 2rem;
+            background: rgba(255,255,255,0.25);
+            border-radius: 20px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+            z-index: 99;
+            padding: 12px 44px;
+            backdrop-filter: blur(8px);
+        }
+        .glass-nav a {
+            color: #24577a;
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            padding: 4px 10px;
+            transition: color 0.2s;
+        }
+        .glass-nav a.active,
+        .glass-nav a:hover {
+            color: #1a2a42;
+            border-bottom: 2px solid #3b8beb;
+        }
+        /* 主要内容样式 */
+        .about-info {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding-top: 60px;
+        }
+        .avatar-box {
+            margin-bottom: 28px;
+            text-align: center;
+        }
+        .avatar-box img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            box-shadow: 0 6px 24px rgba(59,139,235,0.18);
+            border: 4px solid #fff;
+            object-fit: cover;
+            background: #fff;
+        }
+        .nickname {
+            margin-top: 14px;
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #13334a;
+        }
+        .kuaishou-id {
+            font-size: 1.05rem;
+            color: #336a99;
+            margin-top: 2px;
+        }
+        .about-main-content {
+            margin-top: 32px;
+            background: rgba(255,255,255,0.4);
+            border-radius: 18px;
+            padding: 2.5rem 2.2rem 2rem 2.2rem;
+            max-width: 420px;
+            width: 90vw;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.13);
+            backdrop-filter: blur(8px);
+        }
+        .about-main-content h1 {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #24577a;
+        }
+        .about-main-content ul, .about-main-content p {
+            color: #25415a;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.1rem;
+        }
+        .about-main-content h2 {
+            font-size: 1.18rem;
+            color: #2d6ea3;
+            margin: 1.2rem 0 0.5rem 0;
+        }
+        .about-main-content a {
+            color: #2476c2;
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            .about-main-content {
+                padding: 1.2rem 0.6rem;
+                max-width: 98vw;
+            }
+            .glass-nav {
+                padding: 8px 10px;
+                font-size: 0.98rem;
+            }
+        }
+    </style>
 </head>
-<body>
-  <canvas id="particle-canvas"></canvas>
-  <div class="bg-overlay"></div>
-  <nav class="glass-nav">
-    <div class="nav-slider"></div>
-    <a href="index.html" data-hover="Home">首页</a>
-    <a href="install-termux.html" data-hover="Termux">环境配置</a>
-    <a href="github-pages.html" data-hover="GitHub">项目部署</a>
-    <a href="markdown-guide.html" data-hover="Markdown">内容创作</a>
-    <a href="about.html" data-hover="About" class="active">关于</a>
-  </nav>
-  <div class="container">
-    <h1 id="main-title" class="animate__animated animate__fadeInDown">ℹ️ 关于本站</h1>
-    <div class="about-content">
-      <!-- 头像和快手信息 -->
-      <div class="author-profile">
-        <img src="avatar.png" alt="快手头像">
-        <div>
-          <div class="nickname">啊泠好困想睡觉</div>
-          <div class="ks-id">快手号：<span>Alhkxsj0</span></div>
+<body class="home-page">
+    <canvas id="particle-canvas"></canvas>
+    <div class="bg-overlay"></div>
+    <nav class="glass-nav">
+        <a href="/" data-hover="Home">首页</a>
+        <a href="install-termux.html" data-hover="Termux">环境配置</a>
+        <a href="github-pages.html" data-hover="GitHub">项目部署</a>
+        <a href="markdown-guide.html" data-hover="Markdown">内容创作</a>
+        <a href="about.html" data-hover="About" class="active">关于</a>
+    </nav>
+    <div class="about-info">
+        <div class="avatar-box animate__animated animate__fadeInDown">
+            <img src="imagesav/atar.png" alt="头像">
+            <div class="nickname">快手：啊泠好困想睡觉</div>
+            <div class="kuaishou-id">快手号：Alhkxsj0</div>
         </div>
-      </div>
-      <section>
-        <h2>本站简介</h2>
-        <p>本项目致力于为零基础用户提供一套手机端极简高效的建站解决方案。只需一部 Android 手机，即可用 <b>Termux</b> + <b>GitHub Pages</b> 轻松搭建个人主页、博客、作品集，无需服务器、无需编程基础。</p>
-      </section>
-      <section>
-        <h2>适用人群</h2>
-        <ul>
-          <li>想用手机建站的初学者</li>
-          <li>写作者/博主/学生/极客</li>
-          <li>追求极简与效率的内容创作者</li>
-        </ul>
-      </section>
-      <section>
-        <h2>特色亮点</h2>
-        <ul>
-          <li>全部教程亲测，极简清晰，配图详解</li>
-          <li>遇到问题可留言或反馈，长期维护</li>
-          <li>支持自定义美化、SEO 优化、自动化部署等进阶玩法</li>
-        </ul>
-      </section>
-      <section>
-        <h2>联系与反馈</h2>
-        <p>
-          有建议、问题可通过 <a href="https://github.com/Alhkxsj/Alhkxsj.github.io/issues" target="_blank">GitHub Issues</a> 留言，或邮件联系 <a href="mailto:alhkxsj@gmail.com">alhkxsj@gmail.com</a>。
-        </p>
-      </section>
-      <section>
-        <h2>开源与致谢</h2>
-        <p>本站全部源码已在 <a href="https://github.com/Alhkxsj/Alhkxsj.github.io" target="_blank">GitHub</a> 开源，欢迎 Star & Fork！<br>
-        感谢所有开源社区及热心网友的贡献。</p>
-      </section>
-      <section>
-        <h2>声明</h2>
-        <p>教程内容仅供学习交流，转载请注明来源。如有侵权请联系删除。</p>
-      </section>
+        <div class="about-main-content animate__animated animate__fadeInUp">
+            <h1>📖 关于本站</h1>
+            <p><strong>说明：</strong>本网站仅供娱乐，内容和功能主要用于学习和展示。</p>
+            <h2>✨ 建站初衷</h2>
+            <ul>
+                <li>闲着没事干，掌握网站搭建的基本流程</li>
+                <li>记录学习过程，积累个人经验</li>
+            </ul>
+            <h2>🔧 技术说明</h2>
+            <ul>
+                <li>手机 Termux 环境</li>
+                <li>Git & GitHub</li>
+                <li>GitHub Pages 静态托管</li>
+                <li>HTML/CSS/JavaScript 基础</li>
+            </ul>
+            <h2>📬 联系方式</h2>
+            <ul>
+                <li>GitHub: <a href="https://github.com/Alhkxsj" target="_blank">Alhkxsj</a></li>
+            </ul>
+            <h2>🌱 备注</h2>
+            <ul>
+                <li>本页面内容仅供参考，详细教程请上B站自行搜索。</li>
+            </ul>
+        </div>
     </div>
-  </div>
-  <script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
