@@ -58,13 +58,14 @@ document.addEventListener('DOMContentLoaded', () => {
         var containers = document.querySelectorAll('.container, .tutorial-content');
         if (!nav || !containers.length) return;
         var navRect = nav.getBoundingClientRect();
-        var navHeight = navRect.bottom;
+        var navBottom = navRect.bottom + window.scrollY;
         containers.forEach(function(c) {
-            c.style.paddingTop = (navHeight + 24) + 'px';
+            c.style.paddingTop = (navBottom + 24) + 'px';
         });
     }
-    adjustContentPadding();
     window.addEventListener('resize', adjustContentPadding);
+    setTimeout(adjustContentPadding, 100);
+    adjustContentPadding();
 
     // 导航滑块动画（适配移动端、桌面端、resize、点击、初始）
     const nav = document.querySelector('.glass-nav');
