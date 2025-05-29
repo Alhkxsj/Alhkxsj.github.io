@@ -4,50 +4,85 @@
   <meta charset="UTF-8">
   <title>关于本站 | Termux 建站全攻略</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="关于『Termux 建站全攻略』的作者、项目背景、反馈方式和开源精神。">
-  <meta name="keywords" content="关于, Termux, 建站, 作者, 反馈, 开源, GitHub Pages">
+  <meta name="description" content="本站致力于提供最通俗易懂、极简实用的 Termux+GitHub Pages 手机建站教程。">
+  <meta name="keywords" content="Termux, GitHub Pages, 建站, 教程, 关于, 手机建站">
   <meta property="og:title" content="关于本站 | Termux 建站全攻略">
-  <meta property="og:description" content="关于『Termux 建站全攻略』的作者、项目背景、反馈方式和开源精神。">
+  <meta property="og:description" content="本站致力于提供最通俗易懂、极简实用的 Termux+GitHub Pages 手机建站教程。">
   <meta property="og:image" content="https://alhkxsj.github.io/images/home-bg.webp">
   <meta property="og:type" content="article">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="tutorial-style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💡</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>ℹ️</text></svg>">
   <style>
-    .about-section {
-      background: rgba(255,255,255,0.16);
-      border-radius: 18px;
-      padding: 32px 18px 18px 18px;
-      margin-top: 14px;
-      box-shadow: 0 3px 16px #2193b011;
-      line-height: 1.85;
-      font-size: 1.08em;
+    .about-content {
+      max-width: 700px;
+      margin: 2.2em auto 2em auto;
+      background: rgba(255,255,255,0.88);
+      border-radius: 12px;
+      padding: 2.2em 1.3em 2em 1.3em;
+      box-shadow: 0 2px 15px #21b6a811;
+      font-size: 1.11em;
+      line-height: 1.82;
     }
-    .about-section h2 {
-      margin-top: 0;
-      font-size: 1.19em;
-      color: #2193b0;
-      letter-spacing: 1px;
+    .about-content h2 {
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-size: 1.33em;
+      font-weight: 600;
+      line-height: 1.22;
+    }
+    .about-content h2:first-child {
+      margin-top: 0.5em;
+    }
+    .author-profile {
+      display: flex;
+      align-items: center;
+      gap: 1.1em;
+      margin-bottom: 1.5em;
+    }
+    .author-profile img {
+      width: 74px;
+      height: 74px;
+      border-radius: 50%;
+      box-shadow: 0 2px 10px #0001;
+      object-fit: cover;
+    }
+    .author-profile .nickname {
+      font-size: 1.18em;
       font-weight: bold;
+      letter-spacing: 0.5px;
     }
-    .about-section a {
-      color: #134e6f;
-      text-decoration: underline;
+    .author-profile .ks-id {
+      font-size: 0.99em;
+      color: #888;
+    }
+    .author-profile .ks-id span {
+      color: #21b6a8;
       font-weight: 500;
-    }
-    .about-section ul {
-      margin-left: 1.2em;
-      padding-left: 0.8em;
+      letter-spacing: 0.5px;
     }
     @media (max-width: 600px) {
-      .about-section {
-        padding: 18px 6px 8px 6px;
-        font-size: 0.98em;
+      .about-content {
+        padding: 1.1em 0.5em 1.2em 0.5em;
+        font-size: 1em;
       }
-      .about-section ul {
-        margin-left: 0.5em;
-        padding-left: 0.4em;
+      .about-content h2 {
+        margin-top: 1.1em;
+        margin-bottom: 0.45em;
+        font-size: 1.09em;
       }
+      .about-content h2:first-child {
+        margin-top: 0.22em;
+      }
+      .author-profile img {
+        width: 54px;
+        height: 54px;
+      }
+      .author-profile {
+        gap: 0.7em;
+        margin-bottom: 1em;
+      }
+      .author-profile .nickname { font-size: 1em; }
     }
   </style>
 </head>
@@ -63,32 +98,51 @@
     <a href="about.html" data-hover="About" class="active">关于</a>
   </nav>
   <div class="container">
-    <h1 id="main-title" class="animate__animated animate__fadeInDown">💡 关于本站</h1>
-    <div class="about-section">
-      <h2>项目简介</h2>
-      <p>
-        <b>『Termux 建站全攻略』</b> 致力于帮零基础用户通过手机轻松拥有个人网站。本站内容覆盖环境配置、建站部署、内容创作、进阶玩法等每一步，全部开源、持续更新。
-      </p>
-      <h2>作者 & 联系方式</h2>
-      <ul>
-        <li>作者：<a href="https://github.com/Alhkxsj" target="_blank">Alhkxsj</a></li>
-        <li>邮箱：<a href="mailto:alhkxsj@outlook.com">alhkxsj@outlook.com</a></li>
-        <li>GitHub 项目：<a href="https://github.com/Alhkxsj/Alhkxsj.github.io" target="_blank">Alhkxsj.github.io</a></li>
-      </ul>
-      <h2>反馈与贡献</h2>
-      <ul>
-        <li>欢迎在 <a href="https://github.com/Alhkxsj/Alhkxsj.github.io/issues" target="_blank">Issues 区</a> 提出建议、反馈 bug 或提交 PR。</li>
-        <li>如有内容错误、需求补充、疑难求助，欢迎邮件或私信交流。</li>
-      </ul>
-      <h2>开源与致谢</h2>
-      <ul>
-        <li>本站内容和源码遵循 <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a> 许可协议开放。</li>
-        <li>感谢所有开源项目及互联网前辈的无私分享。</li>
-      </ul>
-      <h2>致访问者</h2>
-      <p>
-        建站不难，重要的是勇敢迈出第一步。希望这里能助你少走弯路，快速拥有属于自己的网络空间！
-      </p>
+    <h1 id="main-title" class="animate__animated animate__fadeInDown">ℹ️ 关于本站</h1>
+    <div class="about-content">
+      <!-- 头像和快手信息 -->
+      <div class="author-profile">
+        <img src="images/avatar.png" alt="快手头像">
+        <div>
+          <div class="nickname">啊泠好困想睡觉</div>
+          <div class="ks-id">快手号：<span>Alhkxsj0</span></div>
+        </div>
+      </div>
+      <section>
+        <h2>本站简介</h2>
+        <p>本项目致力于为零基础用户提供一套手机端极简高效的建站解决方案。只需一部 Android 手机，即可用 <b>Termux</b> + <b>GitHub Pages</b> 轻松搭建个人主页、博客、作品集，无需服务器、无需编程基础。</p>
+      </section>
+      <section>
+        <h2>适用人群</h2>
+        <ul>
+          <li>想用手机建站的初学者</li>
+          <li>写作者/博主/学生/极客</li>
+          <li>追求极简与效率的内容创作者</li>
+        </ul>
+      </section>
+      <section>
+        <h2>特色亮点</h2>
+        <ul>
+          <li>全部教程亲测，极简清晰，配图详解</li>
+          <li>遇到问题可留言或反馈，长期维护</li>
+          <li>支持自定义美化、SEO 优化、自动化部署等进阶玩法</li>
+        </ul>
+      </section>
+      <section>
+        <h2>联系与反馈</h2>
+        <p>
+          有建议、问题可通过 <a href="https://github.com/Alhkxsj/Alhkxsj.github.io/issues" target="_blank">GitHub Issues</a> 留言，或邮件联系 <a href="mailto:alhkxsj@gmail.com">alhkxsj@gmail.com</a>。
+        </p>
+      </section>
+      <section>
+        <h2>开源与致谢</h2>
+        <p>本站全部源码已在 <a href="https://github.com/Alhkxsj/Alhkxsj.github.io" target="_blank">GitHub</a> 开源，欢迎 Star & Fork！<br>
+        感谢所有开源社区及热心网友的贡献。</p>
+      </section>
+      <section>
+        <h2>声明</h2>
+        <p>教程内容仅供学习交流，转载请注明来源。如有侵权请联系删除。</p>
+      </section>
     </div>
   </div>
   <script src="app.js"></script>
