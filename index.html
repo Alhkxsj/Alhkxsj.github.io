@@ -1,57 +1,43 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <title>Termux 建站全攻略 | 手机建站、GitHub Pages、零基础静态网站教程</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="超详细 Termux+GitHub Pages 手机建站教程，从环境配置到内容创作与上线，零基础也能拥有专属个人静态网站。">
-  <meta name="keywords" content="Termux, 手机建站, GitHub Pages, Markdown, 零基础, 教程, 静态网站">
-  <meta property="og:title" content="Termux 建站全攻略 | 手机建站、GitHub Pages、零基础静态网站教程">
-  <meta property="og:description" content="超详细 Termux+GitHub Pages 手机建站教程，从环境配置到内容创作与上线，零基础也能拥有专属个人静态网站。">
-  <meta property="og:image" content="https://alhkxsj.github.io/images/home-bg.webp">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termux建站全指南</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <canvas id="particle-canvas"></canvas>
-  <div class="bg-overlay"></div>
-  <nav class="glass-nav">
-    <div class="nav-slider"></div>
-    <a href="index.html" data-hover="Home" class="active">首页</a>
-    <a href="install-termux.html" data-hover="Termux">环境配置</a>
-    <a href="github-pages.html" data-hover="GitHub">项目部署</a>
-    <a href="markdown-guide.html" data-hover="Markdown">内容创作</a>
-    <a href="about.html" data-hover="About">关于</a>
-  </nav>
-  <div class="container">
-    <h1 id="main-title" class="animate__animated animate__fadeInDown">📱 Termux 建站全攻略</h1>
-    <div class="content-grid">
-      <div class="feature-card">
-        <div class="card-icon">⚡</div>
-        <h2>环境配置</h2>
-        <p>手机上快速搭建 Termux 环境、配置 SSH、Git，助你无门槛写代码、玩转建站。</p>
-        <a href="install-termux.html">开始配置</a>
-      </div>
-      <div class="feature-card">
-        <div class="card-icon">🚀</div>
-        <h2>项目部署</h2>
-        <p>一步步教你用 GitHub Pages 免费发布个人网站，域名绑定，持续集成全掌握。</p>
-        <a href="github-pages.html">部署网站</a>
-      </div>
-      <div class="feature-card">
-        <div class="card-icon">✍️</div>
-        <h2>内容创作</h2>
-        <p>Markdown 基础与进阶写作技巧，轻松优雅写博客、写笔记、做作品集。</p>
-        <a href="markdown-guide.html">Markdown 教程</a>
-      </div>
-      <div class="feature-card">
-        <div class="card-icon">💡</div>
-        <h2>关于 & 进阶</h2>
-        <p>作者简介、项目说明、常见问题解答与开源精神，欢迎交流与反馈！</p>
-        <a href="about.html">了解本站</a>
-      </div>
-    </div>
-  </div>
-  <script src="app.js"></script>
+<body class="home-page">
+    <canvas id="particle-canvas"></canvas>
+    <div class="bg-overlay"></div>
+    <nav class="glass-nav">
+        <div class="nav-slider"></div>
+        <a href="/" data-hover="Home" class="active">首页</a>
+        <a href="install-termux.html" data-hover="Termux">环境配置</a>
+        <a href="github-pages.html" data-hover="GitHub">项目部署</a>
+        <a href="markdown-guide.html" data-hover="Markdown">内容创作</a>
+        <a href="about.html" data-hover="About">关于</a>
+    </nav>
+    <main class="glass-container">
+        <h1 id="main-title" class="animate__animated animate__fadeInDown">📱 Termux建站全攻略</h1>
+        <div class="content-grid">
+            <section class="feature-card" onclick="location.href='install-termux.html'">
+                <div class="card-icon">🔧</div>
+                <h2>环境配置指南</h2>
+                <p>从安装到基础配置一站式教程</p>
+            </section>
+            <section class="feature-card" onclick="location.href='github-pages.html'">
+                <div class="card-icon">🚀</div>
+                <h2>GitHub部署</h2>
+                <p>免费托管你的网站项目</p>
+            </section>
+            <section class="feature-card" onclick="location.href='markdown-guide.html'">
+                <div class="card-icon">✍️</div>
+                <h2>Markdown写作</h2>
+                <p>优雅高效的内容创作方式</p>
+            </section>
+        </div>
+    </main>
+    <script src="app.js"></script>
 </body>
 </html>

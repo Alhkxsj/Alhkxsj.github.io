@@ -2,8 +2,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-    background: linear-gradient(120deg, #6dd5ed 0%, #2193b0 100%);
-    color: #183850;
+    background: linear-gradient(120deg, #3a7afe 0%, #1de9b6 100%);
+    color: #f5f5f5;
     min-height: 100vh;
     position: relative;
     line-height: 1.7;
@@ -13,9 +13,11 @@ body {
 .bg-overlay {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(30, 30, 60, 0.12);
+    background: rgba(30, 30, 60, 0.28);
     z-index: 1;
     pointer-events: none;
+    border-radius: 0 0 48px 48px;
+    box-shadow: 0 14px 48px 0 rgba(58,122,254,0.12);
 }
 #particle-canvas {
     position: fixed;
@@ -24,176 +26,168 @@ body {
     z-index: 0;
     pointer-events: none;
     display: block;
-    border-radius: 0 0 40px 40px;
+    border-radius: 0 0 48px 48px;
 }
 .glass-nav {
     position: fixed;
-    top: 24px;
+    top: 36px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(255,255,255,0.15);
-    border-radius: 38px;
-    padding: 7px 20px;
-    box-shadow: 0 6px 22px 0 rgba(31,38,135,0.12);
+    background: rgba(255,255,255,0.19);
+    border-radius: 30px;
+    padding: 10px 36px;
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,0.16);
     z-index: 10;
     display: flex;
-    gap: 22px;
-    backdrop-filter: blur(10px);
+    gap: 38px;
+    backdrop-filter: blur(16px);
     align-items: center;
-    border: 1px solid rgba(58,122,254,0.10);
-    min-width: 240px;
+    border: 1.5px solid rgba(58,122,254,0.09);
+    transition: box-shadow 0.32s cubic-bezier(.4,0,.2,1);
+    min-width: 340px;
     overflow: visible;
+    position: relative;
 }
 .glass-nav a {
     color: #fff;
     text-decoration: none;
-    padding: 8px 22px;
-    border-radius: 20px;
+    padding: 10px 28px;
+    border-radius: 22px;
     background: transparent;
-    transition: background 0.3s cubic-bezier(.55,1.5,.45,1), color 0.28s, transform 0.25s cubic-bezier(.55,1.5,.45,1), box-shadow 0.23s;
+    transition: background 0.28s, color 0.28s, transform 0.23s, box-shadow 0.22s;
     font-weight: 600;
     letter-spacing: 1px;
-    font-size: 1.05em;
+    position: relative;
+    font-size: 1.08em;
     z-index: 1;
 }
 .glass-nav a:hover,
 .glass-nav a.active {
-    background: rgba(62,220,255,0.17);
-    color: #2193b0;
-    transform: translateY(-3px) scale(1.09);
-    box-shadow: 0 5px 18px #6dd5ed40;
+    background: rgba(62,220,255,0.16);
+    color: #3a7afe;
+    transform: translateY(-4px) scale(1.12);
+    box-shadow: 0 6px 24px #1de9b648;
 }
 .nav-slider {
     position: absolute;
-    bottom: 4px;
+    bottom: 6px;
     left: 0;
-    height: 7px;
-    width: 40px;
-    background: linear-gradient(90deg,#6dd5ed,#2193b0);
+    height: 6px;
+    width: 60px;
+    background: linear-gradient(90deg,#3a7afe,#1de9b6);
     border-radius: 8px;
+    transition: left 0.34s cubic-bezier(.4,0,.2,1), width 0.34s cubic-bezier(.4,0,.2,1);
     z-index: 0;
     pointer-events: none;
-    transition: left 0.37s cubic-bezier(.55,1.5,.45,1), width 0.34s cubic-bezier(.55,1.5,.45,1);
 }
-
-.container, .tutorial-content {
-    width: 100%;
+.glass-container {
     max-width: 900px;
-    margin: 0 auto 48px auto;
-    padding-top: 0; /* 让js动态设置 */
-    padding-left: 8vw;
-    padding-right: 8vw;
-    box-sizing: border-box;
-    background: none !important;
-    box-shadow: none !important;
-    border-radius: 0;
-    min-height: 400px;
+    margin: 120px auto 60px auto;
+    background: rgba(255,255,255,0.18);
+    border-radius: 36px;
+    padding: 56px 40px 48px 40px;
+    box-shadow: 0 8px 48px 0 rgba(31,38,135,0.13);
+    z-index: 2;
+    position: relative;
+    backdrop-filter: blur(18px);
+    animation: floaty 8s ease-in-out infinite alternate;
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
 }
-
+body.page-loaded .glass-container {
+    opacity: 1;
+    transform: none;
+}
 #main-title {
-    font-size: 2.2em;
+    font-size: 2.8em;
     font-weight: bold;
-    margin-bottom: 38px;
-    color: #134e6f;
+    margin-bottom: 26px;
+    color: #fff;
     text-align: left;
     letter-spacing: 2px;
-    padding: 18px 36px 18px 0;
+    border-radius: 22px;
+    padding: 12px 28px 12px 0;
     display: inline-block;
-    border-radius: 20px;
-    box-shadow: 0 1px 18px 0 rgba(58,122,254,0.10);
-    background: rgba(255,255,255,0.09);
+    box-shadow: 0 2px 36px 0 rgba(58,122,254,0.10);
+    background: transparent;
     cursor: pointer;
     user-select: none;
-    transition: color 0.18s;
-    margin-top: 0;
-    position: relative;
-    z-index: 3;
+    transition: color 0.33s, box-shadow 0.28s;
 }
 #main-title.bounce {
-    animation: bounce 0.5s cubic-bezier(.45,1.5,.45,1);
+    animation: bounce 0.4s;
 }
 @keyframes bounce {
     0%   { transform: scale(1);}
-    30%  { transform: scale(1.17);}
-    60%  { transform: scale(0.92);}
+    30%  { transform: scale(1.18);}
+    60%  { transform: scale(0.95);}
     100% { transform: scale(1);}
-}
-@keyframes floaty {
-    from { transform: translateY(0);}
-    to   { transform: translateY(-7px);}
 }
 .content-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 28px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
 }
 .feature-card {
-    background: rgba(255,255,255,0.15);
-    border-radius: 22px;
-    box-shadow: 0 5px 18px 0 rgba(31,38,135,0.11);
-    padding: 24px 18px;
-    transition: box-shadow 0.22s cubic-bezier(.45,1.5,.45,1), transform 0.18s cubic-bezier(.45,1.5,.45,1);
+    background: rgba(255,255,255,0.22);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,0.14);
+    padding: 38px 24px 26px 24px;
+    transition: box-shadow 0.22s cubic-bezier(.4,0,.2,1), transform 0.18s cubic-bezier(.4,0,.2,1);
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    border: 1.2px solid rgba(58,122,254,0.08);
-    backdrop-filter: blur(2px);
-    min-width: 0;
+    border: 2px solid transparent;
+    backdrop-filter: blur(12px);
 }
 .feature-card:hover {
-    box-shadow: 0 10px 28px 0 rgba(31,38,135,0.18);
-    transform: translateY(-7px) scale(1.04) rotate(-1deg);
-    border-color: #6dd5ed;
+    box-shadow: 0 16px 56px 0 rgba(31,38,135,0.19);
+    transform: translateY(-12px) scale(1.05) rotate(-1deg);
+    border-color: #1de9b6;
 }
 .card-icon {
-    font-size: 2.3em;
-    margin-bottom: 13px;
-    background: linear-gradient(90deg, #2193b0, #6dd5ed 80%);
+    font-size: 2.6em;
+    margin-bottom: 18px;
+    background: linear-gradient(90deg, #3a7afe, #1de9b6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 2px 8px #2193b070);
 }
 .feature-card h2 {
-    font-size: 1.13em;
+    font-size: 1.32em;
     font-weight: 700;
-    color: #134e6f;
-    margin-bottom: 8px;
-    letter-spacing: 1px;
+    color: #1de9b6;
+    margin-bottom: 12px;
 }
 .feature-card p {
-    color: #183850;
-    margin: 0 0 13px 0;
-    font-size: 1.01em;
-    font-weight: 500;
+    color: #3a7afe;
+    margin: 0;
+    font-size: 1.06em;
 }
-.feature-card a {
-    background: linear-gradient(90deg,#6dd5ed,#2193b0);
-    color: #fff !important;
-    padding: 7px 20px;
-    border-radius: 13px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 8px;
-    transition: background 0.2s, transform 0.17s;
-    box-shadow: 0 2px 8px #2193b044;
-    display: inline-block;
-    letter-spacing: 1px;
-    font-size: 1em;
+::-webkit-scrollbar {
+    width: 12px;
+    background: rgba(30,60,80,0.08);
+    border-radius: 8px;
 }
-.feature-card a:hover {
-    background: linear-gradient(90deg,#2193b0,#6dd5ed);
-    transform: scale(1.06);
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg,#3a7afe,#1de9b6);
+    border-radius: 8px;
 }
-
-/* 通用响应式 */
+@keyframes floaty {
+    from { transform: translateY(0);}
+    to   { transform: translateY(-12px);}
+}
 @media (max-width: 950px) {
-    .content-grid { grid-template-columns: 1fr; gap: 20px;}
-    .glass-nav { gap: 10px; padding: 7px 5px;}
-    #main-title { font-size: 1.4em; padding: 10px 6vw 10px 0;}
-    .container, .tutorial-content { padding-left: 2vw; padding-right: 2vw;}
-}
-@media (max-width: 600px) {
-    #main-title { font-size: 1.1em; padding: 8px 2vw 8px 0;}
-    .container, .tutorial-content { padding-left: 1vw; padding-right: 1vw;}
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .glass-container {
+        padding: 24px 6vw 24px 6vw;
+    }
+    .glass-nav {
+        gap: 16px;
+        padding: 8px 10px;
+    }
 }
